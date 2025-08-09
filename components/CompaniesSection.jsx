@@ -65,14 +65,12 @@ const CompaniesSection = () => {
             const Logo = brand.logo;
             return (
               <span key={i} className="mx-6 flex ">
-                <Logo className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20" />
+                <Logo className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20 " />
               </span>
             );
           })}
         </Marquee>
       </div>
-      {/* Mini Features */}
-      <MiniFeatures />
     </section>
   );
 };

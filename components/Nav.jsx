@@ -1,17 +1,52 @@
 "use client";
 
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-//Hooks
-import { usePathname } from "next/navigation";
 
 const Nav = ({ links }) => {
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("");
 
-  console.log(typeof links);
+  useEffect(() => {
+    const handleHash = () => {
+      setActiveSection(window.location.hash || "#home");
+    };
+
+    // Si se clickea un anchor
+    window.addEventListener("hashchange", handleHash);
+    handleHash(); // Inicial
+
+    // Observador para scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = `#${entry.target.id}`;
+            setActiveSection(id);
+          }
+        });
+      },
+      {
+        threshold: 0.6, // 60% del elemento visible
+      }
+    );
+
+    // Observar todas las secciones con ID
+    links.forEach((link) => {
+      const el = document.querySelector(link.path);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("hashchange", handleHash);
+      observer.disconnect();
+    };
+  }, [links]);
+
   return (
     <nav className="flex gap-8">
       {links.map((link, i) => {
+        const isActive = link.path === activeSection;
+
         return (
           <motion.a
             initial={{ opacity: 0, y: -20 }}
@@ -25,7 +60,7 @@ const Nav = ({ links }) => {
             href={link.path}
             key={i}
             className={`${
-              link.path === pathname && "text-accent border-b-2 border-accent"
+              isActive ? "text-accent border-b-2 border-accent" : ""
             } capitalize font-medium hover:text-accent transition-colors duration-300`}
           >
             {link.name}
@@ -35,5 +70,4 @@ const Nav = ({ links }) => {
     </nav>
   );
 };
-
 export default Nav;

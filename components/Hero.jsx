@@ -6,10 +6,13 @@ import { SiTrustpilot } from "react-icons/si";
 import { GiPadlock } from "react-icons/gi";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import { useModal } from "@/context/ModalContext";
 
 const Hero = () => {
+  const { openModal } = useModal();
+
   return (
-    <section>
+    <section id="home">
       {/* Container */}
       <div className="container mx-auto h-full flex flex-col gap-5 pt-30 items-center">
         {/* Badge */}
@@ -50,12 +53,26 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <Button className="bg-accent cursor-pointer">Get Started</Button>
-          <Button className="cursor-pointer">Watch Demo</Button>
+          <Button
+            onClick={() => openModal(<p>¡Get Started desde el Hero!!</p>)}
+            className="bg-accent cursor-pointer"
+          >
+            Get Started
+          </Button>
+
+          <Button
+            onClick={() => openModal(<p>¡Watch Demo desde el Hero!!</p>)}
+            className="cursor-pointer"
+          >
+            Watch Demo
+          </Button>
         </div>
 
+
+        {/* Images */}
+        <div className="relative w-screen overflow-hidden text-center z-50">
         {/* Stars */}
-        <div className="flex items-center gap-2 py-2">
+        <div className="flex items-center justify-center gap-2 pt-2 pb-8">
           <SiTrustpilot className="h-[24px] w-[24px] text-accent" />
           <h3>Trustpilot</h3>
           <Rating defaultValue={5}>
@@ -64,20 +81,12 @@ const Hero = () => {
             ))}
           </Rating>
           <p className="font-semibold">
-            <CountUp 
-              end={4200}
-              duration={5}
-              delay={0.5}
-            />
-            + 5 Stars
+            <CountUp end={4200} duration={5} delay={0.5} />+ 5 Stars
           </p>
         </div>
-
-        {/* Images */}
-        <div className="relative w-screen overflow-hidden text-center  ">
           {/* Gradient screen */}
-          <div className="absolute h-full top-0 z-50 pointer-events-none w-full bg-gradient-to-t from-accent to-transparent" />
-          <div className="container mx-auto rounded-t-2xl shadow-2xl max-h-[500px] overflow-hidden relative">
+          <div className="absolute h-1/2 bottom-0 z-50 pointer-events-none w-full bg-gradient-to-t from-accent to-transparent " />
+          <div className="container mx-auto rounded-t-2xl  max-h-[500px] overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.2)]">
             <img src="\assets\light.png" alt="" className="w-full px-4 " />
           </div>
         </div>

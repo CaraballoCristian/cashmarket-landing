@@ -11,26 +11,23 @@ const miniFeatures = [
   {
     icon: <FaRegCreditCard className="text-white text-xl" />,
     title: "Credit Card",
-    description:
-      "Rewards and benefits without the downsides of a credit card. Simplicity and transparency built right in.",
+    description: "Rewards and benefits without the downsides of a credit card. Simplicity and transparency built right in.",
   },
   {
     icon: <FaRegKeyboard className="text-white text-xl" />,
     title: "Management",
-    description:
-      "Institutional-grade fund offerings across active and passive strategies to get in paid flash payments.",
+    description: "Institutional-grade fund offerings across active and passive strategies to get in paid flash payments.",
   },
   {
     icon: <FaRegClipboard className="text-white text-xl" />,
     title: "Application",
-    description:
-      "Mobile banking throws out the rule book and gives you a precision tool for managing your finances.",
+    description: "Mobile banking throws out the rule book and gives you a precision tool for managing your finances.",
   },
 ];
 
 export default function MiniFeatures() {
   return (
-    <section className="py-20 ">
+    <section id="features"  className="py-20 ">
       <div className="max-w-6xl mx-auto px-6">
         {/* Título y subtítulo */}
         <div className="text-center mb-16">
@@ -66,7 +63,7 @@ export default function MiniFeatures() {
           </motion.p>
         </div>
 
-        {/* Grid animado */}
+        {/* Cards animado */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {miniFeatures.map((item, i) => (
             <motion.div
@@ -82,7 +79,7 @@ export default function MiniFeatures() {
                 ease: "easeOut",
               }}
               viewport={{ once: false }}
-              className="flex flex-col items-center gap-6 p-4 duration-300 rounded-2xl bg-bg"
+              className="flex flex-col items-center gap-6 p-4 duration-300 shadow-2xl rounded-2xl bg-bg"
             >
               <div className="bg-accent p-4 rounded-full shadow-md">
                 {item.icon}

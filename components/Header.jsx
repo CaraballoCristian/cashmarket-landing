@@ -4,34 +4,37 @@ import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
+import { useModal } from "@/context/ModalContext";
+import MiniFeatures from "./MiniFeatures";
 
 //Links
 const links = [
   {
     name: "home",
-    path: "/",
+    path: "#home",
   },
   {
-    name: "about",
-    path: "#",
+    name: "features",
+    path: "#features",
   },
   {
-    name: "services",
-    path: "#",
+    name: "testimonials",
+    path: "#testimonials",
   },
   {
-    name: "pricing",
-    path: "#",
+    name: "FAQ",
+    path: "#faq",
   },
   {
-    name: "contact",
-    path: "#",
+    name: "prototype",
+    path: "#prototype",
   },
 ];
 
 const Header = () => {
+  const { openModal } = useModal();
   return (
-    <header className="h-[48px] px-4 ">
+    <header className=" fixed top-0 w-screen z-[999] h-[48px] px-4 bg-bg/80 backdrop-blur-[4px]">
       <div className="container flex justify-between items-center h-full mx-auto ">
         {/* Logo */}
         <Link href="/">
@@ -60,8 +63,22 @@ const Header = () => {
         </div>
         {/* CTA */}
         <div className="hidden lg:flex gap-3">
-          <Button className=" cursor-pointer">Login</Button>
-          <Button className="bg-accent cursor-pointer">Sign Up!</Button>
+          <Button
+            onClick={() =>
+              openModal(<p>¡Login desde el Header!</p>)
+            }
+            className=" cursor-pointer"
+          >
+            Login
+          </Button>
+          <Button
+            onClick={() =>
+              openModal(<p>¡Sigh Up desde el Header!</p>)
+            }
+            className="bg-accent cursor-pointer"
+          >
+            Sign Up!
+          </Button>
         </div>
       </div>
     </header>

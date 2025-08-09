@@ -1,38 +1,17 @@
-1. TrackWise (FinTech)
-Una app de finanzas personales que ayuda a la gente a organizar sus gastos, ingresos y metas.
-Ideal para LATAM y mercados globales.
-
-💡 Producto ficticio
-“TrackWise: Tomá control de tus finanzas con una plataforma simple, segura y clara.”
-
-🧩 Estructura sugerida
-Header + Hero con CTA (App demo + botón “empezar”)
-Visual de gráficos de presupuesto (Chart.js)
-Sección con features: crear metas, presupuestos, alertas, sincronizar cuentas (ficticio)
-Captura animada de un dashboard con hover/scroll efectos
-Testimonios ("+500k personas ya la usan en LATAM")
-CTA final: “Probá la demo” (aunque sea falsa)
-Footer
-
-💥 Skills que podés mostrar
-Tailwind + Framer Motion (para microinteracciones suaves)
-Chart.js o Recharts
-Dark/light mode toggle
-Diseño claro, profesional, mobile-first
-Optimización de performance
-UI components con Shadcn/UI
-Buen uso de @theme (Tailwind v4)  
-
---------------------
-Sections Left
-• features section
-• testimonials section
-• FAQ
-• cta final + newsletter
-• footer lleno de links de relleno
-
-add:
-• link navigation
-• botton form modal? 
+To Add:
+• Content para cada modal 
 • Multi lang
-• Dark Mode
+• Dark Mode (load el preferred of the user)
+• Cuando corrijas el codigo, corregi textos cringe como el del CTA final
+
+Recap y sugerencia concreta
+Botones tipo CTA	✔️ Que abran modal ficticio
+Dark Mode	✔️ Dale, suma mucho. Usa useState y className condicional
+Multi lenguaje	✔️ Aunque sea con 2 flags falsas. Demuestra visión global
+
+BONUS: idea de cómo sumar valor sin quemarte
+✨ Agregá un modal reutilizable que aparezca en todos los botones de CTA
+Texto: “This is a visual prototype. No data is being submitted.”
+Campo de mail falso opcional.
+Opción de cerrar con ESC o fondo oscuro.
+Muestra manejo de estado, componentes, UX.

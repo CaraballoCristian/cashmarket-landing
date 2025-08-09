@@ -1,5 +1,6 @@
 import { Inter, Archivo } from "next/font/google";
 import "./globals.css";
+import { ModalProvider } from "@/context/ModalContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,7 +23,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${archivo.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <div className="modal"></div>
+        <ModalProvider>{children}</ModalProvider>
       </body>
     </html>
   );

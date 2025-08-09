@@ -4,7 +4,11 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CompaniesSection from "@/components/CompaniesSection";
 import Testimonials from "@/components/Testimonials";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import FaqSection from "@/components/FaqSection";
+import CtaSection from "@/components/CtaSection";
+import Footer from "@/components/Footer";
+import { Modal } from "@/components/Modal";
 
 export default function Home() {
   return (
@@ -14,6 +18,8 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
+        {/* Modal */}
+        <Modal />
         {/* Header */}
         <Header />
         {/* Hero Page */}
@@ -23,7 +29,13 @@ export default function Home() {
         {/* Features Section */}
         <FeaturesSection />
         {/* Testimonials */}
-         <Testimonials /> 
+        <Testimonials />
+        {/* FAQ */}
+        <FaqSection />
+        {/* CtaSection */}
+        <CtaSection />
+        {/* Footer */}
+        <Footer />
       </motion.div>
     </>
   );

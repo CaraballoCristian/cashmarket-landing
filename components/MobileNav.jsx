@@ -37,10 +37,7 @@ const MobileNav = ({links}) => {
                 onClick={() => setOpen(false)}
                 href={link.path}
                 key={i}
-                className={`${
-                  link.path === pathname &&
-                  "text-accent border-b-2 border-accent"
-                } text-xl capitalize hover:text-accent transition-all`}
+                className="text-xl capitalize hover:text-accent transition-all"
               >
                 {link.name}
               </Link>

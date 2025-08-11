@@ -1,14 +1,23 @@
+/* Este componente esta terminado */
+/* Podria cargar los colores del degradado de la marquee como variables */
+
 "use client";
-import React from "react";
+
+// Utils
+import { motion } from "framer-motion";
+
+// UI
 import Marquee from "react-fast-marquee";
+import { SiBinance } from "react-icons/si";
 import {
   FaCcStripe,
   FaCcVisa,
   FaCcAmazonPay,
   FaCcPaypal,
 } from "react-icons/fa";
-import { SiBinance } from "react-icons/si";
-import { motion } from "framer-motion";
+
+// Context
+import { useDark } from "@/context/DarkContext";
 
 const brands = [
   {
@@ -34,10 +43,14 @@ const brands = [
 ];
 
 const CompaniesSection = () => {    
+const {dark} = useDark();
 
   return (
     <section className="h-full pb-10 bg-primary dark:bg-primary-dark">
-      <div className="containe p-2 mx-auto flex flex-col gap-8">
+      {/* Container */}
+      <div className="containe flex flex-col gap-8 p-2 mx-auto">
+        
+        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 100 }}
           whileInView={{
@@ -50,21 +63,23 @@ const CompaniesSection = () => {
             ease: "easeOut",
           }}
           viewport={{ once: false }}
-          className="text-text text-center py-10"
+          className="py-10 text-center text-text dark:text-text-dark"
         >
-          Trusted by <span className="text-bg">2600+</span> Growing Companies
+          Trusted by <span className="text-bg dark:text-accent-dark">2600+</span> Growing Companies
         </motion.h2>
+        
+        {/* Companies Marquee */}
         <Marquee
           speed={50}
           gradient={true}
-          gradientColor="#10b981"
+          gradientColor={`${dark ? "#0143a7" : "#579bfe"}`}
           autoFill
-          className="w-full mx-auto text-2xl font-semibold text-bg/80 dark:text-text/80"
+          className="w-full text-2xl mx-auto font-semibold text-bg"
         >
           {brands.map((brand, i) => {
             const Logo = brand.logo;
             return (
-              <span key={i} className="mx-6 flex ">
+              <span key={i} className="flex mx-6">
                 <Logo className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20 " />
               </span>
             );

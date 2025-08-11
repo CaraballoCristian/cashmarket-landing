@@ -76,12 +76,11 @@ const Hero = () => {
 
         {/* Bottom section */}
         <div className="relative w-screen overflow-hidden text-center z-50">
-          
           {/* Trustpilot */}
           <div className="flex items-center justify-center gap-2 pt-2 pb-8">
             <SiTrustpilot className="h-[24px] w-[24px] text-accent dark:text-accent-dark" />
             <h3>Trustpilot</h3>
-            
+
             {/* Stars */}
             <Rating defaultValue={5}>
               {Array.from({ length: 5 }).map((_, index) => (
@@ -94,12 +93,12 @@ const Hero = () => {
               <CountUp end={4200} duration={5} delay={0.5} />+ 5 Stars
             </p>
           </div>
-          
+
           {/* Gradient screen */}
-          <div className="absolute h-1/2 bottom-0 z-50 pointer-events-none w-full bg-gradient-to-t from-primary dark:from-primary-dark to-transparent " />
+          <div className="absolute bottom-0 z-50 h-1/2 w-full pointer-events-none bg-gradient-to-t from-primary dark:from-primary-dark to-transparent" />
 
           {/* Image Container */}
-          <div className="container mx-auto rounded-t-2xl max-h-[500px] overflow-hidden relative shadow-[0_0_50px_rgba(87,155,254,0.2)] dark:shadow-[0_0_50px_rgba(136,179,238,0.2)]">
+          <div className=" relative container max-h-[500px] rounded-t-2xl mx-auto overflow-hidden shadow-[0_-8px_70px_#579bfe] dark:shadow-[0_-10px_70px_#0143a7]">
             <img
               src={dark ? "/assets/dark.png" : "/assets/light.png"}
               alt=""

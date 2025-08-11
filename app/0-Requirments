@@ -4,6 +4,7 @@ To Add
 • Content para cada modal (Falta CTA) 
 • Close Video Modal on "ESC" when playing
 • Fix footer mobile styles
+• Check unnecesary DARK imports
 
 • Refactor
   • Tailwind Classes,

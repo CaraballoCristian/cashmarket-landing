@@ -1,4 +1,7 @@
+// Helpers
 import { helpValidations } from "@/helpers/helpValidations";
+
+// Hooks
 import { useState } from "react";
 
 const initialForm = {

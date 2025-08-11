@@ -1,41 +1,46 @@
+/* Este componente esta listo */
+
 "use client";
 
+//Utils
+import { motion } from "framer-motion";
+
+// UI
 import {
   FaRegCreditCard,
   FaRegClipboard,
   FaRegKeyboard,
 } from "react-icons/fa6";
-import { motion } from "framer-motion";
-import { useDark } from "@/context/DarkContext";
+
+const iconStyles = "text-bg dark:text-bg-dark text-xl";
 
 const miniFeatures = [
   {
-    icon: <FaRegCreditCard className="text-white text-xl" />,
+    icon: <FaRegCreditCard className={iconStyles}/>,
     title: "Credit Card",
     description: "Rewards and benefits without the downsides of a credit card. Simplicity and transparency built right in.",
   },
   {
-    icon: <FaRegKeyboard className="text-white text-xl" />,
+    icon: <FaRegKeyboard className={iconStyles}/>,
     title: "Management",
     description: "Institutional-grade fund offerings across active and passive strategies to get in paid flash payments.",
   },
   {
-    icon: <FaRegClipboard className="text-white text-xl" />,
+    icon: <FaRegClipboard className={iconStyles}/>,
     title: "Application",
     description: "Mobile banking throws out the rule book and gives you a precision tool for managing your finances.",
   },
 ];
 
 export default function MiniFeatures() {
-    const { dark } = useDark();
-  
+      
   return (
-    <section id="features"  className="py-20 relative z-20" >
-      <div className="max-w-6xl mx-auto px-6 overflow-hidden">
+    <section id="features"  className="relative z-20 py-20" >
+      <div className="max-w-6xl mx-auto p-6 overflow-hidden">
         
-        {/* Título y subtítulo */}
+        {/* Top Texts */}
         <div className="text-center mb-16">
-          {/* Titulo */}
+          {/* Title */}
           {<motion.h2
             initial={{ x: 100, opacity: 0 }}
             whileInView={{
@@ -47,12 +52,12 @@ export default function MiniFeatures() {
               duration: 0.6,
               ease: "easeOut",
             }}
-            className="text-3xl md:text-4xl font-bold text-text"
+            className="text-3xl md:text-4xl font-bold text-text dark:text-text-dark"
           >
-            WHAT MAKES US <span className="text-bg dark:text-bg">DIFFERENT</span>
+            WHAT MAKES US <span className="text-bg dark:text-accent-dark">DIFFERENT</span>
           </motion.h2> }
 
-          {/* Subtitulo */}
+          {/* Subtitle */}
           <motion.p
           initial={{ x: -100, opacity: 0 }}
             whileInView={{
@@ -64,13 +69,13 @@ export default function MiniFeatures() {
               duration: 0.6,
               ease: "easeOut",
             }}
-          className="text-white/80 font-semibold mt-4 max-w-xl mx-auto">
+          className="max-w-xl mx-auto mt-4 font-semibold text-text dark:text-text-dark">
             Fast, flexible, and built for modern crypto investors. From seamless
             management to intelligent tools, we redefine portfolio tracking.
           </motion.p>
         </div>
 
-        {/* Cards animado */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {miniFeatures.map((item, i) => (
             <motion.div
@@ -82,17 +87,17 @@ export default function MiniFeatures() {
               }}
               transition={{
                 delay: i * 0.2,
-                duration: 0.2,
+                duration: 0.4,
                 ease: "easeOut",
               }}
               viewport={{ once: false }}
-              className="flex flex-col items-center gap-6 p-4 duration-300 shadow-lg dark:shadow-bg rounded-2xl bg-bg dark:bg-text dark:text-bg"
+              className="flex flex-col items-center gap-6 p-4 rounded-2xl shadow-md shadow-bg-dark dark:shadow-bg border border-primary-dark dark:border-primary bg-primary dark:bg-primary-dark dark:text-text-dark"
             >
-              <div className="bg-accent p-4 rounded-full shadow-md">
+              <div className="bg-accent dark:bg-accent-dark p-4 rounded-full shadow-md">
                 {item.icon}
               </div>
               <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="text-gray-500 font-semibold text-sm max-w-xs">
+              <p className="text-muted dark:text-muted-dark font-semibold text-sm max-w-xs">
                 {item.description}
               </p>
             </motion.div>

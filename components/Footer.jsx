@@ -1,3 +1,6 @@
+/* Este Componente esta terminado */
+
+// UI
 import Link from "next/link";
 import {
   FaFacebookF,
@@ -109,45 +112,50 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white overflow-hidden px-6 py-12">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-12">
+    <footer className="px-6 py-12 overflow-hidden bg-black text-text-dark">
+      {/* Upper Footer */}
+      <div className="max-w-7xl flex flex-col md:flex-row justify-between gap-12 mx-auto">
         {/* Left Section */}
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xl font-bold">
-              <span className="text-accent">$</span>Cashmarket
-            </span>
+        <div className="flex-1 flex md:flex-col justify-evenly">
+          <div className="flex items-center gap-3 mb-4 text-xl font-bold">
+            <span className="text-accent dark:text-accent-dark">$</span>
+            Cashmarket
           </div>
-          <p className="text-sm text-gray-400 mb-6">
-            Take Control of Your Crypto, <br />
-            Gain Clarity, <br />
-            Grow With Confidence.
-          </p>
 
-          <div className="flex gap-3">
-            {socials.map((social, i) => (
-              <Link
-                key={social.name}
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#1f1f1f] p-2 rounded-md hover:bg-[#333]"
-              >
-                <social.icon />
-              </Link>
-            ))}
+          <div className="">
+            {/* Paragraph */}
+            <p className="text-sm text-muted-dark mb-6">
+              Take Control of Your Crypto, <br />
+              Gain Clarity, <br />
+              Grow With Confidence.
+            </p>
+
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map((social, i) => (
+                <Link
+                  key={social.name}
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-muted p-2 rounded-md hover:bg-accent dark:hover:bg-accent-dark"
+                >
+                  <social.icon />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Center Section (Links) */}
+        {/* Links */}
         <div className="flex flex-[2] justify-between">
           {footerLinks.map((column) => (
             <div key={column.title}>
               <h4 className="font-semibold mb-4">{column.title}</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <ul className="space-y-2 text-sm text-muted-dark">
                 {column.links.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.url} className="hover:text-white">
+                    <Link href={link.url} className="hover:text-text-dark">
                       {link.name}
                     </Link>
                   </li>
@@ -158,13 +166,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="mt-12 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between text-sm text-gray-500">
+      {/* Lower Footer */}
+      <div className="text-center md:text-start mt-12 pt-6 text-sm border-t border-muted-dark/50 text-muted-dark/80">
         <p>© 2026 Cashmarket. All rights reserved.</p>
-        <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Services</a>
-        </div>
       </div>
     </footer>
   );

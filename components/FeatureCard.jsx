@@ -16,14 +16,18 @@ const FeatureCard = ({ icon, title, description, image, isEven, i, targetScale }
 
   const imgScale = useTransform(scrollImg, [0, 1], [2, 1]);
   const cardScale = useTransform(scrollCard, range, [1, targetScale]);
+
+
   return (
-    <article
+    /* Container */
+    <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 mx-auto "
+      className="h-screen flex items-center justify-center sticky top-0 mx-auto"
     >
-      <motion.div
+      {/* Card */}
+      <motion.article
         style={{scale: cardScale, top:`calc(${i * 25}px)`}}
-        className={`relative flex flex-col items-center justify-center md:flex-row h-2/3 md:h-[500px] w-full md:w-[1280px] rounded-2xl border  shadow-[0_0_50px_rgba(0,0,0,0.2)] p-6 bg-accent ${
+        className={`relative flex flex-col items-center justify-center md:flex-row h-2/3 md:h-[500px] w-full md:w-[1280px] rounded-2xl border shadow-[0_0_50px_rgba(0,0,0,0.2)] dark:shadow-[0_0_50px_rgba(255,255,255,0.2)] p-6 bg-accent ${
           !isEven && "md:flex-row-reverse"
         } items-center gap-12`}
       >
@@ -47,8 +51,8 @@ const FeatureCard = ({ icon, title, description, image, isEven, i, targetScale }
           </div>
           <p className="text-text/80  md:text-2xl font-semibold mt-8">{description}</p>
         </div>
-      </motion.div>
-    </article>
+      </motion.article>
+    </div>
   );
 };
 

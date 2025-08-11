@@ -8,7 +8,6 @@ import {
   FaCcPaypal,
 } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
-import MiniFeatures from "./MiniFeatures";
 import { motion } from "framer-motion";
 
 const brands = [
@@ -34,9 +33,10 @@ const brands = [
   },
 ];
 
-const CompaniesSection = () => {
+const CompaniesSection = () => {    
+
   return (
-    <section className="h-full  bg-accent">
+    <section className="h-full pb-10 bg-primary dark:bg-primary-dark">
       <div className="containe p-2 mx-auto flex flex-col gap-8">
         <motion.h2
           initial={{ opacity: 0, y: 100 }}
@@ -59,7 +59,7 @@ const CompaniesSection = () => {
           gradient={true}
           gradientColor="#10b981"
           autoFill
-          className="w-full mx-auto text-2xl font-semibold text-bg/80"
+          className="w-full mx-auto text-2xl font-semibold text-bg/80 dark:text-text/80"
         >
           {brands.map((brand, i) => {
             const Logo = brand.logo;

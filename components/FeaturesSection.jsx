@@ -2,6 +2,7 @@ import FeatureCard from "@/components/FeatureCard";
 import React from "react";
 import { FaBell, FaRegClock, FaRobot, FaWallet } from "react-icons/fa6";
 import MiniFeatures from "./MiniFeatures";
+import { useDark } from "@/context/DarkContext";
 
 const features = [
   {
@@ -35,12 +36,14 @@ const features = [
 ];
 
 const Features = () => {
+    const { dark } = useDark();
+
   return (
     <section className="relative">
       {/* Gradient */}
-      <div className="absolute top-0 z-[-1] w-full h-[400px] bg-gradient-to-b from-accent to-bg" />
-      {/* Mini Features */}
-      <MiniFeatures />
+      <div className="absolute top-0 z-10 w-full h-[400px] bg-gradient-to-b from-accent to-bg dark:to-bg-dark" />
+      {/* Mini Features */} 
+      <MiniFeatures /> 
       {/* Feature Cards */}
       {features.map((feature, i) => {
         const targetScale = 1 - (features.length - i) * 0.05;

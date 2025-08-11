@@ -1,6 +1,10 @@
-import { Inter, Archivo } from "next/font/google";
+// Styles
 import "./globals.css";
+// Fonts
+import { Inter, Archivo } from "next/font/google";
+// Context
 import { ModalProvider } from "@/context/ModalContext";
+import { DarkProvider } from "@/context/DarkContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,13 +24,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${archivo.variable} ${inter.variable} antialiased`}
-      >
-        <div className="modal"></div>
-        <ModalProvider>{children}</ModalProvider>
+      <body className={`${archivo.variable} ${inter.variable} antialiased`}>
+        <DarkProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </DarkProvider>
       </body>
     </html>
   );
 }
-

@@ -1,21 +1,26 @@
-"use client";
+/* Requiero entender el useEffect de este componente */
+/* Podria abstraerse el Use Effect ya que se usa aca y en el nav */
+/* Por lo demas, ya esta terminada */
 
+"use client";
+// Hooks
 import { useEffect, useState } from "react";
+// Utils
 import { motion } from "framer-motion";
 
 const Nav = ({ links }) => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const handleHash = () => {
-      setActiveSection(window.location.hash || "#home");
-    };
+    const handleHash = () => setActiveSection(window.location.hash || "#home");
 
-    // Si se clickea un anchor
+    // When an anchor is clicked
     window.addEventListener("hashchange", handleHash);
-    handleHash(); // Inicial
 
-    // Observador para scroll
+    // Initial
+    handleHash();
+
+    // Scroll Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,16 +31,18 @@ const Nav = ({ links }) => {
         });
       },
       {
-        threshold: 0.6, // 60% del elemento visible
+        // 60% of the element visible
+        threshold: 0.6,
       }
     );
 
-    // Observar todas las secciones con ID
+    // Observ each section that contains an ID
     links.forEach((link) => {
       const el = document.querySelector(link.path);
       if (el) observer.observe(el);
     });
 
+    // Remove event listener and close Intersection Observer
     return () => {
       window.removeEventListener("hashchange", handleHash);
       observer.disconnect();
@@ -43,7 +50,7 @@ const Nav = ({ links }) => {
   }, [links]);
 
   return (
-    <nav className="flex gap-8">
+    <nav className="flex gap-8 ml-10">
       {links.map((link, i) => {
         const isActive = link.path === activeSection;
 
@@ -59,9 +66,9 @@ const Nav = ({ links }) => {
             }}
             href={link.path}
             key={i}
-            className={`${
-              isActive ? "text-accent border-b-2 border-accent" : ""
-            } capitalize font-medium hover:text-accent transition-colors duration-300`}
+            className={`
+              ${isActive && "text-accent border-b-2 border-accent dark:text-accent-dark dark:border-accent-dark"}
+               capitalize font-medium hover:text-accent dark:hover:text-accent-dark transition-colors duration-300`}
           >
             {link.name}
           </motion.a>

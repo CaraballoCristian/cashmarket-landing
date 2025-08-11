@@ -1,11 +1,19 @@
-import React from "react";
+/* This Component is Ready */
+
+// Contexts
+import { useModal } from "@/context/ModalContext";
+import { useDark } from "@/context/DarkContext";
+// Utils
+import { motion } from "framer-motion";
+// UI
 import Link from "next/link";
+import { Button } from "./ui/button";
+// Components
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
-import { Button } from "./ui/button";
-import { motion } from "framer-motion";
-import { useModal } from "@/context/ModalContext";
-import MiniFeatures from "./MiniFeatures";
+// Modals
+import LoginModalContent from "./LoginModalContent";
+import SignUpModalContent from "./SignUpModalContent";
 
 //Links
 const links = [
@@ -33,9 +41,13 @@ const links = [
 
 const Header = () => {
   const { openModal } = useModal();
+  const { toggleDark, dark } = useDark();
+
   return (
-    <header className=" fixed top-0 w-screen z-[999] h-[48px] px-4 bg-bg/80 backdrop-blur-[4px]">
+    <header className="fixed top-0 z-[888] w-screen h-[48px] px-4 backdrop-blur-[4px] bg-bg/80 dark:bg-bg-dark dark:text-text-dark">
+      {/* Container */}
       <div className="container flex justify-between items-center h-full mx-auto ">
+
         {/* Logo */}
         <Link href="/">
           <motion.h1
@@ -50,35 +62,43 @@ const Header = () => {
             }}
             className="text-2xl"
           >
-            <span className="text-accent">$</span>Cashmarket.
+            <span className="text-accent dark:text-accent-dark">$</span>Cashmarket.
           </motion.h1>
         </Link>
+
         {/* Nav */}
         <div className="hidden lg:flex">
           <Nav links={links} />
         </div>
+
         {/* Mobile Nav */}
         <div className="lg:hidden">
           <MobileNav links={links} />
         </div>
-        {/* CTA */}
-        <div className="hidden lg:flex gap-3">
-          <Button
-            onClick={() =>
-              openModal(<p>¡Login desde el Header!</p>)
-            }
-            className=" cursor-pointer"
-          >
-            Login
-          </Button>
-          <Button
-            onClick={() =>
-              openModal(<p>¡Sigh Up desde el Header!</p>)
-            }
-            className="bg-accent cursor-pointer"
-          >
-            Sign Up!
-          </Button>
+
+        {/* Right Side */}
+        <div className="hidden lg:flex items-center gap-8">
+          {/* Dark Mode Switch */}
+          <div className="mr-auto">
+            <button 
+            className="p-2 text-[20px] cursor-pointer"
+            onClick={toggleDark}>{dark ? "🌙" : "🌞"}</button>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex gap-3">
+            <Button
+              onClick={() => openModal(<LoginModalContent />)}
+            >
+              Login
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => openModal(<SignUpModalContent />)}
+            >
+              Sign Up!
+            </Button>
+          </div>
         </div>
       </div>
     </header>

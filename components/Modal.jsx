@@ -23,11 +23,11 @@ export const Modal = () => {
   return (
     <div 
     onClick={() => closeModal()}
-    className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
+    className="fixed top-0 w-screen inset-0 z-[999] bg-black/60 backdrop-blur-[10px] px-4 md:px-0 flex items-center justify-center">
       <div 
        onClick={(e) => e.stopPropagation()}
-      className="bg-white p-6 rounded-xl max-w-md w-full relative">
-        <button onClick={closeModal} className="absolute top-2 right-2 text-xl">
+      className="bg-white px-6 max-w-sm md:max-w-none py-8 rounded-xl relative">
+        <button onClick={closeModal} className="absolute top-4 right-4 text-xl">
           <FaX/>
         </button>
         {modalContent || <p>Default content</p>}

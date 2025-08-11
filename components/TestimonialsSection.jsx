@@ -8,6 +8,7 @@ import { Autoplay, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { useDark } from "@/context/DarkContext";
 
 const testimonials = [
   {
@@ -54,12 +55,16 @@ const testimonials = [
   },
 ];
 
-const Testimonials = () => {
+const TestimonialsSection = () => {
+  const { dark } = useDark();
+
   return (
-    <section id="testimonials" className="relative py-16 px-4 bg-gradient-to-b from-bg to-accent">
-      
+    <section
+      id="testimonials"
+      className="relative py-28 px-4 bg-gradient-to-b from-bg to-accent dark:from-bg-dark"
+    >
       {/* Container */}
-      <div className="relative z-20 container-sm mx-auto flex flex-col pt-0 lg:pt-20 lg:flex-row    ">
+      <div className="relative z-20 container-sm mx-auto flex flex-col pt-0 lg:py-20 lg:flex-row    ">
         {/* Testimonial Text */}
         <div className="mx-auto text-center lg:text-start py-4 lg:px-8 w-full max-w-[500px] lg:max-w-full lg:w-1/2">
           <h3 className=" text-accent  lg:text-3xl py-10">
@@ -70,9 +75,9 @@ const Testimonials = () => {
             enterprise, our tools are built to help you succeed.
             <span className="text-bg"> Real-time insights</span>,
             <span className="text-bg"> seamless integrations</span>, and
-            <span className="text-bg"> bulletproof performance</span> are
-            just a few of the reasons why professionals around the world choose
-            us every day. Join the movement and discover what it means to work
+            <span className="text-bg"> bulletproof performance</span> are just a
+            few of the reasons why professionals around the world choose us
+            every day. Join the movement and discover what it means to work
             smarter, not harder.
           </p>
         </div>
@@ -87,7 +92,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, i) => {
             return (
               <SwiperSlide key={i} className="gap-4 flex ">
-                <article className="h-full flex flex-col px-6 justify-center bg-bg  rounded-2xl">
+                <article className="h-full flex flex-col px-6 justify-center bg-bg dark:bg-text dark:text-bg  rounded-2xl">
                   <div className="flex justify-evenly px-6 py-8 gap-2 ">
                     <FaQuoteLeft className="text-[40px]" />
                     <p className=" text-xl font-semibold max-w-[50ch] text-center">
@@ -125,4 +130,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default TestimonialsSection;

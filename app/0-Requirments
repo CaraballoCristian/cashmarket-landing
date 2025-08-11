@@ -1,17 +1,12 @@
-To Add:
-• Content para cada modal 
+To Add
+• Dark Mode: Refactor all clases
 • Multi lang
-• Dark Mode (load el preferred of the user)
-• Cuando corrijas el codigo, corregi textos cringe como el del CTA final
+• Content para cada modal (Falta CTA) 
+• Close Video Modal on "ESC" when playing
+• Fix footer mobile styles
 
-Recap y sugerencia concreta
-Botones tipo CTA	✔️ Que abran modal ficticio
-Dark Mode	✔️ Dale, suma mucho. Usa useState y className condicional
-Multi lenguaje	✔️ Aunque sea con 2 flags falsas. Demuestra visión global
-
-BONUS: idea de cómo sumar valor sin quemarte
-✨ Agregá un modal reutilizable que aparezca en todos los botones de CTA
-Texto: “This is a visual prototype. No data is being submitted.”
-Campo de mail falso opcional.
-Opción de cerrar con ESC o fondo oscuro.
-Muestra manejo de estado, componentes, UX.
+• Refactor
+  • Tailwind Classes,
+  • Comments,
+  • Logics,
+  • Cringe Texts,

@@ -6,6 +6,7 @@ import {
   FaRegKeyboard,
 } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { useDark } from "@/context/DarkContext";
 
 const miniFeatures = [
   {
@@ -26,12 +27,16 @@ const miniFeatures = [
 ];
 
 export default function MiniFeatures() {
+    const { dark } = useDark();
+  
   return (
-    <section id="features"  className="py-20 ">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="features"  className="py-20 relative z-20" >
+      <div className="max-w-6xl mx-auto px-6 overflow-hidden">
+        
         {/* Título y subtítulo */}
         <div className="text-center mb-16">
-          <motion.h2
+          {/* Titulo */}
+          {<motion.h2
             initial={{ x: 100, opacity: 0 }}
             whileInView={{
               x: 0,
@@ -42,10 +47,12 @@ export default function MiniFeatures() {
               duration: 0.6,
               ease: "easeOut",
             }}
-            className="text-3xl md:text-4xl font-bold text-text tracking-tight"
+            className="text-3xl md:text-4xl font-bold text-text"
           >
-            WHAT MAKES US <span className="text-bg">DIFFERENT</span>
-          </motion.h2>
+            WHAT MAKES US <span className="text-bg dark:text-bg">DIFFERENT</span>
+          </motion.h2> }
+
+          {/* Subtitulo */}
           <motion.p
           initial={{ x: -100, opacity: 0 }}
             whileInView={{
@@ -79,7 +86,7 @@ export default function MiniFeatures() {
                 ease: "easeOut",
               }}
               viewport={{ once: false }}
-              className="flex flex-col items-center gap-6 p-4 duration-300 shadow-2xl rounded-2xl bg-bg"
+              className="flex flex-col items-center gap-6 p-4 duration-300 shadow-lg dark:shadow-bg rounded-2xl bg-bg dark:bg-text dark:text-bg"
             >
               <div className="bg-accent p-4 rounded-full shadow-md">
                 {item.icon}

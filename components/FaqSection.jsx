@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useDark } from "@/context/DarkContext";
 
 const faqs = [
   {
@@ -35,9 +36,11 @@ const faqs = [
 
 
 const FaqSection = () => {
+    const { dark } = useDark();
   return (
-    <section id="faq" className="bg-accent pt-28">
+    <section id="faq" className="bg-accent py-36">
       <div className="container-sm mx-auto px-4">
+      <h2 className="text-center my-15 text-bg">Got Questions? We’ve Got Answers</h2>
         <Accordion
           type="single"
           collapsible

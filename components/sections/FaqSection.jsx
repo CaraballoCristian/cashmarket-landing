@@ -48,7 +48,7 @@ const FaqSection = () => {
       <div className="container-sm mx-auto px-4">
         {/* Title */}
         <h2 className="text-center my-15 text-bg">
-          Got Questions? <span className="text-accent-dark dark:text-accent">We’ve Got Answers</span>
+          Got Questions? <span className="text-accent-dark dark:text-accent">We've Got Answers</span>
         </h2>
         {/* Content */}
         <Accordion

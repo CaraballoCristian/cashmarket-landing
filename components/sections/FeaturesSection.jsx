@@ -3,8 +3,8 @@
 // UI
 import { FaBell, FaRegClock, FaRobot, FaWallet } from "react-icons/fa6";
 // Components
-import FeatureCard from "@/components/FeatureCard";
-import MiniFeatures from "./MiniFeatures";
+import FeatureCard from "@/components/ui/FeatureCard";
+import MiniFeatures from "../ui/MiniFeatures";
 
 const iconStyles = "text-bg text-3xl md:text-4xl mt-2";
 
@@ -43,7 +43,7 @@ const Features = () => {
   return (
     <section className="relative">
       {/* Gradient */}
-      <div className="absolute top-0 z-10 w-full h-[400px] bg-gradient-to-b from-primary to-bg dark:from-primary-dark dark:to-bg-dark" />
+      <div className="absolute top-0 z-10 w-full h-[400px] bg-gradient-to-b from-primary to-transparent dark:from-primary-dark" />
 
       {/* Mini Features */}
       <MiniFeatures />

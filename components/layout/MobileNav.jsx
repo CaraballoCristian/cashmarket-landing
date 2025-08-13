@@ -18,10 +18,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { Button } from "./ui/button";
-// Components
-import LoginModalContent from "./LoginModalContent";
-import SignUpModalContent from "./SignUpModalContent";
+import Button from "../ui/button";
+// Modals
+import LoginModalContent from "../modals/LoginModalContent";
+import SignUpModalContent from "../modals/SignUpModalContent";
 
 const MobileNav = ({ links }) => {
   const [open, setOpen] = useState(false);
@@ -129,15 +129,16 @@ const MobileNav = ({ links }) => {
 
           {/* Buttons */}
           <div className="flex flex-col gap-2 w-full">
-            <Button onClick={() => openModal(<LoginModalContent />)}>
-              Login
-            </Button>
             <Button
-              variant="ghost"
-              onClick={() => openModal(<SignUpModalContent />)}
-            >
-              Sign Up!
-            </Button>
+              variant="secondary"
+              textValue={"Login"}
+              handler={() => openModal(<LoginModalContent />)}
+            />
+            <Button
+              variant="primary"
+              textValue={"Sign Up!"}
+              handler={() => openModal(<SignUpModalContent />)}
+            />
           </div>
         </div>
       </SheetContent>

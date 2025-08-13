@@ -91,7 +91,7 @@ export default function MiniFeatures() {
                 ease: "easeOut",
               }}
               viewport={{ once: false }}
-              className="flex flex-col items-center gap-6 p-4 rounded-2xl shadow-md shadow-bg-dark dark:shadow-bg border border-primary-dark dark:border-primary bg-primary dark:bg-primary-dark dark:text-text-dark"
+              className="flex flex-col items-center gap-6 p-4 rounded-2xl shadow-md shadow-bg-dark dark:shadow-bg border border-primary-dark dark:border-primary  bg-gradient-to-r from-primary to-accent dark:from-accent/20 dark:to-primary/20 dark:text-text-dark"
             >
               <div className="bg-accent dark:bg-accent-dark p-4 rounded-full shadow-md">
                 {item.icon}

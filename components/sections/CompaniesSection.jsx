@@ -47,6 +47,7 @@ const {dark} = useDark();
 
   return (
     <section className="h-full pb-10 bg-primary dark:bg-primary-dark">
+      
       {/* Container */}
       <div className="containe flex flex-col gap-8 p-2 mx-auto">
         

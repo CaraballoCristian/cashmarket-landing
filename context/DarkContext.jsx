@@ -4,37 +4,42 @@ import { createContext, useContext, useState, useEffect } from "react";
 const DarkContext = createContext();
 
 export const DarkProvider = ({ children }) => {
-  const [dark, setDark] = useState(false); // estado inicial seguro
+  const [dark, setDark] = useState(false);
 
   const toggleDark = () => setDark((prev) => !prev);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // 1️⃣ Intentar leer la elección previa del usuario
+      // Read previously saved user preference
       const storedTheme = localStorage.getItem("theme");
 
       if (storedTheme) {
+        // If StoredTheme === "dark" returns true
         setDark(storedTheme === "dark");
       } else {
-        // 2️⃣ Si no hay preferencia guardada, usar la del sistema
+        // If no saved preference, use system setting
         const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        // mediaQuery.matches returns true when preferred colos schema = "dark"
         setDark(mediaQuery.matches);
 
+        // e.matches = true when theme = "dark"
         const handleChange = (e) => setDark(e.matches);
+
+        // adds a "change" event listener to window.matchMedia
         mediaQuery.addEventListener("change", handleChange);
 
-        return () =>
-          mediaQuery.removeEventListener("change", handleChange);
+        // Remove the event listener 
+        return () => mediaQuery.removeEventListener("change", handleChange);
       }
     }
   }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // 3️⃣ Guardar la preferencia del usuario
+      // Save user preference
       localStorage.setItem("theme", dark ? "dark" : "light");
 
-      // 4️⃣ Aplicar la clase al <html>
+      // Apply or remove "dark" class to <html>
       if (dark) {
         document.documentElement.classList.add("dark");
       } else {

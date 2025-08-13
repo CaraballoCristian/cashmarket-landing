@@ -8,6 +8,8 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+// Context
+import { useDark } from "@/context/DarkContext";
 
 const footerLinks = [
   {
@@ -111,14 +113,15 @@ const socials = [
 ];
 
 export default function Footer() {
+  const {dark} = useDark();
   return (
     <footer className="px-6 py-12 overflow-hidden bg-black text-text-dark">
       {/* Upper Footer */}
       <div className="max-w-7xl flex flex-col md:flex-row justify-between gap-12 mx-auto">
         {/* Left Section */}
         <div className="flex-1 flex md:flex-col justify-evenly">
-          <div className="flex items-center gap-3 mb-4 text-xl font-bold">
-            <span className="text-accent dark:text-accent-dark">$</span>
+          <div className="flex items-center gap-1 mb-4 text-xl font-bold">
+             <img src={dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"} alt="logo" className="size-[24px]" />
             Cashmarket
           </div>
 

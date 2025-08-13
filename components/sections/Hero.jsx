@@ -11,30 +11,27 @@ import { useModal } from "@/context/ModalContext";
 import { SiTrustpilot } from "react-icons/si";
 import { GiPadlock } from "react-icons/gi";
 // UI
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { Rating, RatingButton } from "./ui/shadcn-io/rating";
 import CountUp from "react-countup";
+import Button from "../ui/button";
+import Badge from "../ui/badge";
+import Stars from "../ui/ratingStars";
 // Modals
-import WatchDemoModalContent from "./WatchDemoModalContent";
-import SignUpModalContent from "./SignUpModalContent";
+import WatchDemoModalContent from "../modals/WatchDemoModalContent";
+import SignUpModalContent from "../modals/SignUpModalContent";
+// i18n
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
   const { openModal } = useModal();
   const { dark } = useDark();
+  const t = useTranslations();
 
   return (
     <section id="home" className="relative dark:text-text-dark">
       {/* Container */}
       <div className="container w-full h-full flex flex-col items-center gap-5 mx-auto pt-30">
         {/* Badge */}
-        <Badge
-          variant="outline"
-          className="font-semibold rounded-full border-text/60 dark:text-text-dark dark:border-text-dark/60"
-        >
-          <GiPadlock className="h-[9px] w-[9px] mr-1 text-accent dark:text-accent-dark" />
-          Bank-level security
-        </Badge>
+        <Badge msg={"Bank-level security"} icon={GiPadlock} />
 
         {/* Text */}
         <div className="max-w-[800px] gap-2 flex flex-col mx-auto items-center text-center px-4 xl:px-0 ">
@@ -54,24 +51,26 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
             className="font-semibold max-w-[60ch]"
           >
-            Connect your wallets and exchanges to monitor your portfolio in real
+            {" "}
+            {t("hero.subtitle")}
+            {/* Connect your wallets and exchanges to monitor your portfolio in real
             time. Gain insights, compare assets, and optimize your crypto
-            strategy
+            strategy */}
           </motion.p>
         </div>
 
         {/* Buttons */}
         <div className="flex gap-3">
           <Button
-            variant="ghost"
-            onClick={() => openModal(<SignUpModalContent />)}
-          >
-            Get Started
-          </Button>
-
-          <Button onClick={() => openModal(<WatchDemoModalContent />)}>
-            Watch Demo
-          </Button>
+            variant="secondary"
+            textValue={"Watch Demo"}
+            handler={() => openModal(<WatchDemoModalContent />)}
+          />
+          <Button
+            variant="primary"
+            textValue={"Get Started!"}
+            handler={() => openModal(<SignUpModalContent />)}
+          />
         </div>
 
         {/* Bottom section */}
@@ -82,11 +81,9 @@ const Hero = () => {
             <h3>Trustpilot</h3>
 
             {/* Stars */}
-            <Rating defaultValue={5}>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <RatingButton className="text-yellow-500" key={index} />
-              ))}
-            </Rating>
+            <div className="mx-1">
+              <Stars />
+            </div>
 
             {/* Counter */}
             <p className="font-semibold">

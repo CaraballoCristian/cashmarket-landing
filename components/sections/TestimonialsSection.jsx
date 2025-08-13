@@ -6,11 +6,11 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 // UI
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import { Rating, RatingButton } from "./ui/shadcn-io/rating";
 
 // Styles
 import "swiper/css";
 import "swiper/css/pagination";
+import Stars from "../ui/ratingStars";
 
 const testimonials = [
   {
@@ -58,7 +58,6 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-
   return (
     <section
       id="testimonials"
@@ -68,7 +67,7 @@ const TestimonialsSection = () => {
       <div className="relative z-20 container-sm mx-auto pt-0 lg:py-20 flex flex-col lg:flex-row">
         {/* Testimonials Text */}
         <div className="text-center lg:text-start w-full max-w-[500px] lg:max-w-full lg:w-1/2 mx-auto py-4 lg:px-8 ">
-        {/* Title */}
+          {/* Title */}
           <h3 className=" text-accent dark:text-accent-dark lg:text-3xl py-10">
             HERE'S WHAT PEOPLE ARE SAYING
           </h3>
@@ -124,15 +123,10 @@ const TestimonialsSection = () => {
                     />
                     <div className="flex flex-col gap-1">
                       <h4 className="font-semibold">{testimonial.author}</h4>
-                      <p className="text-accent dark:text-accent-dark">{testimonial.charge}</p>
-                      <Rating defaultValue={5}>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                          <RatingButton
-                            className="text-yellow-500"
-                            key={index}
-                          />
-                        ))}
-                      </Rating>
+                      <p className="text-accent dark:text-accent-dark">
+                        {testimonial.charge}
+                      </p>
+                      <Stars />
                     </div>
                   </div>
                 </article>

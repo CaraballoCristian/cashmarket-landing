@@ -1,13 +1,4 @@
-To Add
-• Dark Mode: Refactor all clases
-• Multi lang
-• Content para cada modal (Falta CTA) 
-• Close Video Modal on "ESC" when playing
-• Fix footer mobile styles
-• Check unnecesary DARK imports
+• Multi lang & Cringe Texts
+• que hago con el detector de utc? 
+• also, deberia guardar la preferencia del usuario para idioma as well
 
-• Refactor
-  • Tailwind Classes,
-  • Comments,
-  • Logics,
-  • Cringe Texts,

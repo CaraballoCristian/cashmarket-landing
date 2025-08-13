@@ -5,7 +5,7 @@ export const helpValidations = (form) => {
     name: form.name,
     email: form.email,
     password: form.password,
-    confirmation: form.confirmation, 
+    confirmation: form.confirmation,
   };
 
   let regex = {
@@ -17,7 +17,7 @@ export const helpValidations = (form) => {
   if (!inputs.name) {
     errors.name = "'Name' is a required field";
   } else if (inputs.name.length < 6) {
-    errors.name = "'Name' must be at least 6 characters";
+    errors.name = "'Name' must be at least 6 characters long";
   } else if (!regex.name.test(inputs.name)) {
     errors.name = "'Name' only accepts letters and spaces";
   }
@@ -25,20 +25,23 @@ export const helpValidations = (form) => {
   if (!inputs.email) {
     errors.email = "'Email' is a required field";
   } else if (!regex.email.test(inputs.email)) {
-    errors.email = "'Email' must contain a valid Email";
+    errors.email = "'Email' must be a valid email address";
   }
 
   if (!inputs.password) {
     errors.password = "'Password' is a required field";
   } else if (!regex.password.test(inputs.password)) {
-    errors.password = "Password must contain minimum eight characters, at least one letter and one number";
+    errors.password =
+      "Password must contain at least eight characters, including at least one letter and one number";
   }
 
   if (!inputs.confirmation) {
     errors.confirmation = "'Confirm Password' is a required field";
-  } else if (!regex.password.test(inputs.confirmation) || inputs.password !== inputs.confirmation) {
-    errors.confirmation =
-      "Password and Confirmation does not match";
+  } else if (
+    !regex.password.test(inputs.confirmation) ||
+    inputs.password !== inputs.confirmation
+  ) {
+    errors.confirmation = "Password and confirmation do not match";
   }
 
   return errors;

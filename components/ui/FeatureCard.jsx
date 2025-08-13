@@ -6,20 +6,28 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // Hooks
 import { useRef } from "react";
 
-const FeatureCard = ({ icon, title, description, image, isEven, i, targetScale }) => {
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+  image,
+  isEven,
+  i,
+  targetScale,
+}) => {
   const container = useRef(null);
 
   const { scrollYProgress: scrollImg } = useScroll({
     target: container,
     offset: ["start end", "start start"],
   });
-  
+
   const { scrollYProgress: scrollCard } = useScroll({
     target: container,
     offset: ["start end", "end end"],
   });
-  
-  const range = [i * 1/3 ,1];
+
+  const range = [(i * 1) / 3, 1];
 
   const imgScale = useTransform(scrollImg, [0, 1], [2, 1]);
   const cardScale = useTransform(scrollCard, range, [1, targetScale]);
@@ -32,8 +40,8 @@ const FeatureCard = ({ icon, title, description, image, isEven, i, targetScale }
     >
       {/* Card */}
       <motion.article
-        style={{scale: cardScale, top:`calc(${i * 25}px)`}}
-        className={`relative flex flex-col justify-center items-center gap-12 md:flex-row h-2/3 md:h-[500px] w-full md:w-[1280px] p-6 rounded-2xl shadow-lg border border-primary-dark dark:border-primary shadow-primary-dark dark:shadow-primary bg-primary dark:bg-primary-dark
+        style={{ scale: cardScale, top: `calc(${i * 25}px)` }}
+        className={`relative flex flex-col justify-center items-center gap-12 md:flex-row h-2/3 md:h-[500px] w-full md:w-[1280px] p-6 rounded-2xl shadow-lg border border-primary-dark dark:border-primary shadow-primary-dark dark:shadow-primary bg-gradient-to-r from-accent to-primary
           ${!isEven && "md:flex-row-reverse"}`}
       >
         {/* Picture */}
@@ -54,7 +62,9 @@ const FeatureCard = ({ icon, title, description, image, isEven, i, targetScale }
               {title}
             </h3>
           </div>
-          <p className="text-muted dark:text-muted-dark md:text-2xl font-semibold mt-8">{description}</p>
+          <p className="text-muted dark:text-bg md:text-2xl font-semibold mt-8">
+            {description}
+          </p>
         </div>
       </motion.article>
     </div>

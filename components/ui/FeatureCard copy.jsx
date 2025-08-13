@@ -1,3 +1,5 @@
+/* Este componente esta listo */
+
 "use client";
 // Utils
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -12,10 +14,8 @@ const FeatureCard = ({
   isEven,
   i,
   targetScale,
-  reference
 }) => {
   const container = useRef(null);
-  const Icon = icon;
 
   const { scrollYProgress: scrollImg } = useScroll({
     target: container,
@@ -23,11 +23,11 @@ const FeatureCard = ({
   });
 
   const { scrollYProgress: scrollCard } = useScroll({
-    target: reference,
-    offset: ["start start", "end end"],
+    target: container,
+    offset: ["start end", "end end"],
   });
 
-  const range = [i * 0.2, 1];
+  const range = [(i * 1) / 3, 1];
 
   const imgScale = useTransform(scrollImg, [0, 1], [2, 1]);
   const cardScale = useTransform(scrollCard, range, [1, targetScale]);
@@ -40,9 +40,8 @@ const FeatureCard = ({
     >
       {/* Card */}
       <motion.article
-        /* Stacking */
-        style={{ scale: cardScale, top: `calc(-10% + ${i * 25}px)` }}
-        className={`relative flex flex-col justify-center items-center gap-12 md:flex-row h-2/3 md:h-[450px] w-full lg:w-[1150px] p-6 rounded-2xl shadow-lg border border-primary-dark dark:border-primary shadow-primary-dark dark:shadow-primary bg-gradient-to-r from-accent to-primary
+        style={{ scale: cardScale, top: `calc(${i * 25}px)` }}
+        className={`relative flex flex-col justify-center items-center gap-12 md:flex-row h-2/3 md:h-[500px] w-full lg:w-[1280px] p-6 rounded-2xl shadow-lg border border-primary-dark dark:border-primary shadow-primary-dark dark:shadow-primary bg-gradient-to-r from-accent to-primary
           ${!isEven && "md:flex-row-reverse"}`}
       >
         {/* Picture */}
@@ -58,8 +57,8 @@ const FeatureCard = ({
         {/* Text */}
         <div className="w-full md:w-1/2 h-full text-center md:text-left">
           <div className="flex gap-2">
-            <Icon className="text-2xl md:text-3xl font-bold text-bg mt-2"/>
-            <h3 className="text-2xl  md:text-3xl font-bold text-bg mt-2">
+            {icon}
+            <h3 className="text-2xl  md:text-4xl font-bold text-bg mt-2">
               {title}
             </h3>
           </div>

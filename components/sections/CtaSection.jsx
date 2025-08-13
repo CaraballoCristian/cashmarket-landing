@@ -22,7 +22,7 @@ const CtaSection = () => {
     >
       {/* Card */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.4 }}
@@ -46,7 +46,7 @@ const CtaSection = () => {
           
           {/* Button */}
           <Button
-            variant="cta"
+            variant="black&white"
             textValue={"Explore the Prototype"}
             handler={() => openModal(<CtaModalContent />)}
           />

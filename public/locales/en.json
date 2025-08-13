@@ -2,9 +2,6 @@
   "hero": {
     "title": "Manage your crypto portfolio with style",
     "subtitle": "Track, analyze, and grow your assets in real time."
-  },
-  "buttons": {
-    "explore": "Explore the prototype",
-    "getStarted": "Get started"
   }
+
 }

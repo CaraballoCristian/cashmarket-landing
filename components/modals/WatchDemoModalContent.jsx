@@ -23,8 +23,8 @@ export default function WatchDemoContent() {
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
-      }, 3000);
-    }, 1500);
+      }, 2000);
+    }, 3000);
   };
 
   return (
@@ -86,6 +86,7 @@ export default function WatchDemoContent() {
             {/* CTA Button */}
             <div className="max-w-[300px] mx-auto">
               <ButtonForm
+                variant="form"
                 textValue={"Get Early Access"}
                 isLoading={isLoading}
                 loadingValue={"joining waitlist..."}

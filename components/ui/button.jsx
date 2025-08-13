@@ -1,7 +1,7 @@
 const Button = ({
   variant,
   textValue,
-  disabledCondition = false,
+  disabledCondition,
   isLoading,
   loadingValue,
   handler,
@@ -15,21 +15,25 @@ const Button = ({
 
   // Variant Selector
   switch (variant) {
-    case "primary":
+    /* Accent Buttons */
+    case "accent":
       styles +=
         "text-text text-sm bg-accent hover:bg-accent-hover dark:bg-accent-dark dark:hover:bg-accent-dark-hover";
       break;
-      case "secondary":
-        styles +=
-          "text-text-dark dark:text-text bg-bg-dark dark:bg-bg text-sm hover:bg-muted/80 dark:hover:bg-bg/80";
-        break;
-      case "cta":
-        styles +=
-          "w-full md:w-fit px-6 py-3 mt-10 font-semibold bg-white text-black dark:bg-black dark:text-white";
-        break;
-      default:
+    /* Form Buttons */
+    case "form":
       styles +=
         " w-full text-white py-3 px-6 bg-gradient-to-r from-accent/80 to-accent hover:from-accent-dark/80 hover:to-accent-dark/80";
+      break;
+    /* B&W Buttons */
+    case "black&white":
+      styles +=
+        "w-full md:w-fit px-6 py-3 mt-10 font-semibold bg-white text-black dark:bg-black dark:text-white hover:text-white hover:bg-black dark:hover:text-black dark:hover:bg-white";
+      break;
+    /* Gray Buttons */
+    default:
+      styles +=
+        "text-text-dark dark:text-text bg-bg-dark dark:bg-bg text-sm hover:bg-muted/80 dark:hover:bg-bg/80";
       break;
   }
 

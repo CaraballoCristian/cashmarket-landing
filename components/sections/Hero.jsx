@@ -62,12 +62,11 @@ const Hero = () => {
         {/* Buttons */}
         <div className="flex gap-3">
           <Button
-            variant="secondary"
             textValue={"Watch Demo"}
             handler={() => openModal(<WatchDemoModalContent />)}
           />
           <Button
-            variant="primary"
+            variant="accent"
             textValue={"Get Started!"}
             handler={() => openModal(<SignUpModalContent />)}
           />
@@ -86,7 +85,7 @@ const Hero = () => {
             </div>
 
             {/* Counter */}
-            <p className="font-semibold">
+            <p className="font-semibold text-lg">
               <CountUp end={4200} duration={5} delay={0.5} />+ 5 Stars
             </p>
           </div>

@@ -1,12 +1,12 @@
 /* Component Ready */
-
+"use client";
 // Hooks
 import { useState } from "react";
 // UI
 import { User, Lock } from "lucide-react";
-import Input from "../ui/formInput";
+import Input from "../ui/input";
 import FooterDisclaimer from "../ui/footerDisclaimer";
-import ButtonForm from "../ui/button.jsx";
+import Button from "../ui/button.jsx";
 import CtaFeedback from "../ui/ctaFeedback";
 
 const initialForm = {
@@ -16,32 +16,44 @@ const initialForm = {
 
 export default function LoginContent() {
   const [form, setForm] = useState(initialForm);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleLogin = () => {
+  // On Submit
+  const handleSubmit = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     setIsLoading(true);
 
-    // Simulate login process
+    // Simulate Login
     setTimeout(() => {
       setIsLoading(false);
 
-      // Show success
-      setIsSubmitted(true);
+      // If any field is empty
+      if (!form.username || !form.password) {
+        setError("Incomplete Data");
+        return;
+      } else {
+        // Show success
+        setIsSubmitted(true);
 
-      // Reset Form
-      setTimeout(() => {
-        setForm(initialForm);
-        setIsSubmitted(false);
-      }, 1500);
-    }, 1500);
+        // Reset Form
+        setTimeout(() => {
+          setForm(initialForm);
+          setIsSubmitted(false);
+        }, 2000);
+      }
+    }, 3000);
   };
 
   // On Change
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -90,12 +102,13 @@ export default function LoginContent() {
         )}
 
         {/* Login Button */}
-        <ButtonForm
+        <Button
+          variant="form"
           textValue={"Login"}
           disabledCondition={!form.username || !form.password || isLoading}
           isLoading={isLoading}
           loadingValue={"Logging in..."}
-          handler={handleLogin}
+          handler={handleSubmit}
         />
       </form>
 

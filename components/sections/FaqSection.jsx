@@ -1,5 +1,7 @@
 /* Este componente esta listo */
 
+// Utils
+import { motion } from "framer-motion";
 // UI
 import {
   Accordion,
@@ -47,9 +49,25 @@ const FaqSection = () => {
       {/* Container */}
       <div className="container-sm mx-auto px-4">
         {/* Title */}
-        <h2 className="text-center my-15 text-bg">
-          Got Questions? <span className="text-accent-dark dark:text-accent">We've Got Answers</span>
-        </h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0,
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+          viewport={{ once: false }}
+          className="text-center my-15 text-bg"
+        >
+          Got Questions?{" "}
+          <span className="text-accent-dark dark:text-accent">
+            We've Got Answers
+          </span>
+        </motion.h2>
         {/* Content */}
         <Accordion
           type="single"
@@ -59,14 +77,31 @@ const FaqSection = () => {
         >
           {faqs.map((faq, i) => {
             return (
-              <AccordionItem key={i} value={i + 1}>
-                <AccordionTrigger className="font-extrabold text-xl hover:text-accent-dark dark:hover:text-shadow-accent">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="flex flex-col gap-4 text-xl font-semibold">
-                  <p>{faq.answer}</p>
-                </AccordionContent>
-              </AccordionItem>
+              /* Motion Wrapper */
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.2 * i,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: false }}
+                className="border-b border-accent"
+              >
+                <AccordionItem value={i + 1}>
+                  <AccordionTrigger className="font-extrabold text-xl hover:text-accent-dark dark:hover:text-shadow-accent">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="flex flex-col gap-4 text-xl font-semibold">
+                    <p>{faq.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             );
           })}
         </Accordion>

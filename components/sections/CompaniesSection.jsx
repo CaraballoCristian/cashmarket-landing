@@ -5,7 +5,6 @@
 
 // Utils
 import { motion } from "framer-motion";
-
 // UI
 import Marquee from "react-fast-marquee";
 import { SiBinance } from "react-icons/si";
@@ -15,7 +14,6 @@ import {
   FaCcAmazonPay,
   FaCcPaypal,
 } from "react-icons/fa";
-
 // Context
 import { useDark } from "@/context/DarkContext";
 

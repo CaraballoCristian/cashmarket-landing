@@ -72,7 +72,7 @@ const MobileNav = ({ links }) => {
     <Sheet open={open} onOpenChange={setOpen}>
       {/* Accesibility */}
       <SheetHeader className="hidden">
-        <SheetTitle></SheetTitle>
+        <SheetTitle>Mobile Nav</SheetTitle>
       </SheetHeader>
 
       {/* Trigger */}
@@ -97,9 +97,15 @@ const MobileNav = ({ links }) => {
           </div>
           {/* Logo */}
           <div className="text-center">
-            <Link onClick={() => setOpen(false)} href="/">
-              <h1 className="text-3xl font-semibold text-text dark:text-text-dark">
-                <span className="text-accent dark:text-accent-dark">$</span>
+            <Link onClick={() => setOpen(false)} href="#home">
+              <h1 className="text-3xl flex gap-1 items-start font-semibold text-text dark:text-text-dark">
+                <img
+                  src={
+                    dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"
+                  }
+                  alt="logo"
+                  className="size-[28px]"
+                />
                 Cashmarket.
               </h1>
             </Link>
@@ -130,14 +136,19 @@ const MobileNav = ({ links }) => {
           {/* Buttons */}
           <div className="flex flex-col gap-2 w-full">
             <Button
-              variant="secondary"
               textValue={"Login"}
-              handler={() => openModal(<LoginModalContent />)}
+              handler={() => {
+                openModal(<LoginModalContent />);
+                setOpen(false);
+              }}
             />
             <Button
-              variant="primary"
+              variant="accent"
               textValue={"Sign Up!"}
-              handler={() => openModal(<SignUpModalContent />)}
+              handler={() => {
+                openModal(<SignUpModalContent />);
+                setOpen(false);
+              }}
             />
           </div>
         </div>

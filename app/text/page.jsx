@@ -42,25 +42,31 @@ const Main = () => {
       }}
       className="bg-bg dark:bg-bg-dark"
     >
-      {/* Modal */}
-      <Modal />
       {/* Header */}
       <Header />
+
       {/* Hero Page */}
       <Hero />
+
       {/* Proof Section */}
       <CompaniesSection />
+
       {/* Features Section */}
       <FeaturesSection />
+
       {/* Testimonials */}
-      <TestimonialsSection />
+       <TestimonialsSection />
+
       {/* FAQ */}
       <FaqSection />
+
       {/* CtaSection */}
       <CtaSection />
+
       {/* Footer */}
       <Footer />
+      
     </motion.main>
   );
-}
+};
 export default Main;

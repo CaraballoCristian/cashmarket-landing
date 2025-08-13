@@ -1,5 +1,7 @@
 /* This Component is Ready */
 
+"use client"
+
 // Hooks
 import { useState } from "react";
 // Contexts
@@ -123,12 +125,11 @@ const Header = () => {
           {/* CTA Buttons */}
           <div className="flex gap-3">
             <Button
-              variant="secondary"
               textValue={"Login"}
               handler={() => openModal(<LoginModalContent />)}
             />
             <Button
-              variant="primary"
+              variant="accent"
               textValue={"Sign Up!"}
               handler={() => openModal(<SignUpModalContent />)}
             />

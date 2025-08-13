@@ -66,12 +66,8 @@ const TestimonialsSection = () => {
       {/* Container */}
       <div className="relative z-20 container-sm mx-auto pt-0 lg:py-20 flex flex-col lg:flex-row">
         {/* Testimonials Text */}
-        <div
-          className="text-center lg:text-start w-full max-w-[500px] lg:max-w-full lg:w-1/2 mx-auto py-4 lg:px-8 "
-        >
-          {/* Title */}
-          <motion.h3 
-          initial={{ opacity: 0, x: -100 }}
+        <motion.div
+          initial={{ opacity: 0, x: -200 }}
           whileInView={{
             opacity: 1,
             x: 0,
@@ -82,23 +78,14 @@ const TestimonialsSection = () => {
             ease: "easeOut",
           }}
           viewport={{ once: false }}
-          className=" text-accent dark:text-accent-dark lg:text-3xl pb-10">
+          className="text-center lg:text-start w-full max-w-[500px] lg:max-w-full lg:w-1/2 mx-auto py-4 lg:px-8 "
+        >
+          {/* Title */}
+          <h3 className=" text-accent dark:text-accent-dark lg:text-3xl pb-8">
             HERE'S WHAT PEOPLE ARE SAYING
-          </motion.h3>
+          </h3>
           {/* Paragraph */}
-          <motion.p 
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-          }}
-          transition={{
-            delay: 0.3,
-            duration: 0.6,
-            ease: "easeOut",
-          }}
-          viewport={{ once: false }}
-          className="font-semibold xl:text-2xl lg:text-xl">
+          <p className="font-semibold xl:text-2xl lg:text-xl">
             Whether you're managing a team of five or scaling a global
             enterprise, our tools are built to help you succeed.
             <span className="text-bg dark:text-accent-dark">
@@ -118,27 +105,31 @@ const TestimonialsSection = () => {
             are just a few of the reasons why professionals around the world
             choose us every day. Join the movement and discover what it means to
             work smarter, not harder.
-          </motion.p>
-        </div>
-
+          </p>
+        </motion.div>
         {/* Cards */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
           transition={{
-            delay: 0.4,
-            duration: 0.8,
+            delay: 0.2,
+            duration: 0.6,
             ease: "easeOut",
           }}
           viewport={{ once: false }}
-          className="w-full max-w-[500px] lg:max-w-full lg:w-1/2 overflow-hidden rounded-2xl"
+          style={{ touchAction: 'pan-y' }}
+          className=" w-full max-w-[500px] lg:max-w-full lg:w-1/2"
         >
           <Swiper
             pagination={true}
             modules={[Autoplay, Pagination]}
             loop
             autoplay={{ delay: 5000 }}
-            className=" h-[400px] gap-2 rounded-2xl shadow-lg shadow-primary-dark dark:shadow-primary
+            
+            className=" h-full gap-2 rounded-2xl shadow-lg shadow-primary-dark dark:shadow-primary
           border border-primary-dark dark:border-primary"
           >
             {testimonials.map((testimonial, i) => {

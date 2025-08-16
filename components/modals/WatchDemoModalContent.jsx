@@ -1,5 +1,6 @@
 // Hooks
 import { useState } from "react";
+import { useBackButtonClose } from "@/hooks/useBackButtonClose";
 // UI
 import { Video } from "lucide-react";
 import FooterDisclaimer from "../ui/footerDisclaimer";
@@ -7,12 +8,17 @@ import CtaFeedback from "../ui/ctaFeedback";
 import Button from "../ui/button.jsx";
 // i18n
 import { useTranslations } from "next-intl";
+import { useModal } from "@/context/ModalContext";
 
 export default function WatchDemoContent() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // loading button
   const [isVideoLoading, setIsVideoLoading] = useState(true); // loading video
+  const { closeModal } = useModal();
   const t = useTranslations("modals.watch-demo");
+
+  /* Back Button Fix */
+  useBackButtonClose(closeModal);
 
   const handleVideoLoad = () => setIsVideoLoading(false);
 

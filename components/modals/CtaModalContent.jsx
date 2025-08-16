@@ -3,6 +3,7 @@
 // Hooks
 import { useState } from "react";
 import { useValidations } from "@/hooks/useValidations";
+import { useBackButtonClose } from "@/hooks/useBackButtonClose";
 // UI
 import {
   Mail,
@@ -36,18 +37,21 @@ export default function PrototypeContent() {
   const v = useTranslations("validations");
   const validateForm = useValidations(v);
 
+  /* Back Button Fix */
+  useBackButtonClose(closeModal);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validations to avoid forcing disabled buttons
-    const fieldErrors = validateForm({email});
+    const fieldErrors = validateForm({ email });
     setErrors(fieldErrors);
 
     // If any field is empty returns
     if (!email.trim() || Object.keys(fieldErrors).length !== 0) {
       setTimeout(() => setErrors({}), 1000);
       return;
-    }                         
+    }
 
     // Simulate submit
     setIsLoading(true);
@@ -77,7 +81,7 @@ export default function PrototypeContent() {
             {t("header.top")}
           </span>
         </div>
-         {/* Title */}
+        {/* Title */}
         <h2 className="text-2xl font-bold text-white mb-2">
           {t("header.title")} <br />
           <span className="text-bg dark:text-acent-dark">Cashmarket</span>

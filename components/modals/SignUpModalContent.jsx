@@ -2,6 +2,7 @@
 // Hooks
 import { useState } from "react";
 import { useValidations } from "@/hooks/useValidations";
+import { useBackButtonClose } from "@/hooks/useBackButtonClose";
 // Context
 import { useModal } from "@/context/ModalContext";
 // UI
@@ -29,6 +30,9 @@ export default function SignUpContent() {
   const t = useTranslations("modals.signup");
   const v = useTranslations("validations");
   const validateForm = useValidations(v);
+
+    /* Back Button Fix */
+    useBackButtonClose(closeModal);
 
   // On Change
   const handleChange = (e) => {

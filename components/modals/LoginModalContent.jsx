@@ -1,6 +1,6 @@
 "use client";
 // Hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useValidations } from "@/hooks/useValidations";
 // UI
 import { User, Lock } from "lucide-react";
@@ -12,6 +12,7 @@ import CtaFeedback from "../ui/ctaFeedback";
 import { useModal } from "@/context/ModalContext";
 // i18n
 import { useTranslations } from "next-intl";
+import { useBackButtonClose }from "@/hooks/useBackButtonClose";
 
 const initialForm = {
   username: "",
@@ -27,6 +28,9 @@ export default function LoginContent() {
   const t = useTranslations("modals.login");
   const v = useTranslations("validations");
   const validateForm = useValidations(v);
+
+  /* Back Button Fix */
+  useBackButtonClose(closeModal);
 
   // On Submit
   const handleSubmit = (e) => {
@@ -45,7 +49,7 @@ export default function LoginContent() {
       setTimeout(() => setErrors({}), 1000);
       return;
     }
-    
+
     // Simulate Login
     setIsLoading(true);
 

@@ -63,11 +63,6 @@ const MobileNav = ({ links }) => {
       <SheetContent>
         <div className="relative h-full w-full flex flex-col justify-between items-center px-4 pb-12 pt-1 ">
          
-
-
-
-
-
           {/* Wrapper Dark & Lang */}
           <div className="flex top-1  w-full gap-2 left-3 text-center ">
             {/* Dark Mode Switch */}
@@ -76,11 +71,6 @@ const MobileNav = ({ links }) => {
             {/* Language Switcher */}
             <LanguageSwitcher setLocale={setLocale} locale={locale} />
           </div>
-
-
-
-
-
 
           {/* Logo */}
           <div className="text-center" onClick={() => setOpen(false)}>
@@ -93,6 +83,8 @@ const MobileNav = ({ links }) => {
 
           {/* Nav */}
           <Nav
+            setOpen={setOpen}
+            open={open}
             links={links}
             navStyles={"flex flex-col items-center gap-8 w-full py-8"}
             linkStyles={"text-xl capitalize text-text dark:text-text-dark"}

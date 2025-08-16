@@ -5,11 +5,15 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useHashObserver } from "@/hooks/useHashObserver";
 
-const Nav = ({ links, navStyles, linkStyles }) => {
+const Nav = ({ links, navStyles, linkStyles, open = false, setOpen }) => {
   const [activeSection, setActiveSection] = useState("");
 
   /* Handles the hash navigation & the highlighted link on scroll */
   useHashObserver(links, setActiveSection);
+
+  const handleClick = () => {
+    if(open) setOpen(false);
+  }
 
   return (
     <nav className={`${navStyles ? navStyles : "flex gap-4 xl:gap-8"}`}>
@@ -18,6 +22,7 @@ const Nav = ({ links, navStyles, linkStyles }) => {
 
         return (
           <motion.a
+            onClick={handleClick}
             initial={{
               opacity: 0,
               y: -20,

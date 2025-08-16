@@ -1,8 +1,6 @@
 "use client";
 // Utils
-import { motion } from "framer-motion";
-// Hooks
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // Layout Components
 import { Modal } from "@/components/ui/Modal";
 import Header from "@/components/layout/Header";
@@ -11,6 +9,14 @@ import Footer from "@/components/layout/Footer";
 import PageLoader from "@/components/ui/PageLoader";
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Initial Load
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   /* On reload */
   useEffect(() => {
     // Return scroll to top
@@ -23,16 +29,23 @@ export default function App() {
   }, []);
 
   return (
-    /* Page Loader */
-    <PageLoader>
-      {/* Modal */}
-      <Modal />
-      {/* Header */}
-      <Header />
-      {/* Main */}
-      <Main />
-      {/* Footer */}
-      <Footer />
-    </PageLoader>
+    <>
+      {/* Page Loader */}
+      <PageLoader isLoading={isLoading} />
+
+      {/* Main content */}
+      {!isLoading && (
+        <>
+          {/* Modal */}
+          <Modal />
+          {/* Header */}
+          <Header />
+          {/* Main */}
+          <Main />
+          {/* Footer */}
+          <Footer />
+        </>
+      )}
+    </>
   );
 }

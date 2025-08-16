@@ -17,6 +17,9 @@ const CtaSection = () => {
   const isDesktop = useIsDesktop();
   const t = useTranslations("cta-section");
 
+  const initial = isDesktop ? { opacity: 0, y: 100 } : { opacity: 0};
+  const whileInView = isDesktop ? { opacity: 1, y: 0 } : { opacity: 1};
+
   return (
     <section
       id="prototype"
@@ -24,8 +27,8 @@ const CtaSection = () => {
     >
       {/* Card */}
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={initial}
+        whileInView={whileInView}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.4 }}
         className="relative md:max-w-2xl lg:max-w-6xl flex flex-col md:flex-row items-center justify-between p-8 lg:p-12 mt-16 mx-auto rounded-2xl shadow-lg shadow-accent-dark dark:shadow-accent text-white dark:text-black border border-accent-dark dark:border-accent bg-gradient-to-r dark:from-primary dark:to-accent to-accent from-primary-dark"

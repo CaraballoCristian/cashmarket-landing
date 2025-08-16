@@ -4,24 +4,24 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Light */
+  /* Light Theme */
   --color-primary: #579bfe;
   --color-primary-hover: #88b3ee;
 
   --color-accent: #10b981;
-  --color-accent-hover: #48efb7; /* equals to accent dark */
+  --color-accent-hover: #48efb7;
   
   --color-bg: #f4f6fa;
   --color-text: #1f2937;
   
   --color-muted: #1f2937;
 
-  /* Dark */
+  /* Dark Theme */
   --color-primary-dark: #0143a7;
   --color-primary-dark-hover: #113c78;
 
   --color-accent-dark: #48efb7;
-  --color-accent-dark-hover: #10b981; /* equals to accent light */
+  --color-accent-dark-hover: #10b981;
   
   --color-bg-dark: #05070a;
   --color-text-dark: #c8d2e0;
@@ -35,7 +35,7 @@
   /* Breakpoints */
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 960px;
+  --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
 }
 
@@ -130,6 +130,20 @@
     @apply font-secondary;
   }
 }
+
+@layer utilities {
+  /* Shake animation for the wrong inputs */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.4s ease-in-out;
+  }
+}
+
 .container-sm {
   max-width: 1200px;
 }

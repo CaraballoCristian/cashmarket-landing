@@ -1,93 +1,16 @@
-/* Este Componente esta terminado */
-
+"use client";
 // UI
-import Link from "next/link";
 import {
   FaFacebookF,
   FaLinkedinIn,
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import Logo from "../ui/Logo";
 // Context
 import { useDark } from "@/context/DarkContext";
-
-const footerLinks = [
-  {
-    title: "Explore",
-    links: [
-      {
-        name: "Dashboard Overview",
-        url: "#",
-      },
-      {
-        name: "Real-Time Tracking",
-        url: "#",
-      },
-      {
-        name: "AI Predictions",
-        url: "#",
-      },
-      {
-        name: "Alerts & Notifications",
-        url: "#",
-      },
-      {
-        name: "Pricing Plans",
-        url: "#",
-      },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      {
-        name: "Knowledge Base",
-        url: "#",
-      },
-      {
-        name: "Tutorials",
-        url: "#",
-      },
-      {
-        name: "Security & Privacy",
-        url: "#",
-      },
-      {
-        name: "FAQs",
-        url: "#",
-      },
-      {
-        name: "Contact Support",
-        url: "#",
-      },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      {
-        name: "About CashMarket",
-        url: "#",
-      },
-      {
-        name: "Careers",
-        url: "#",
-      },
-      {
-        name: "Blog",
-        url: "#",
-      },
-      {
-        name: "Terms of Service",
-        url: "#",
-      },
-      {
-        name: "Privacy Policy",
-        url: "#",
-      },
-    ],
-  },
-];
+// i18n
+import { useTranslations } from "next-intl";
 
 const socials = [
   {
@@ -113,30 +36,113 @@ const socials = [
 ];
 
 export default function Footer() {
-  const {dark} = useDark();
+  const { dark } = useDark();
+  const t = useTranslations("footer");
+
+  const footerLinks = [
+    {
+      title: t("links-1.title"),
+      links: [
+        {
+          name: t("links-1.links.1"),
+          url: "#",
+        },
+        {
+          name: t("links-1.links.2"),
+          url: "#",
+        },
+        {
+          name: t("links-1.links.3"),
+          url: "#",
+        },
+        {
+          name: t("links-1.links.4"),
+          url: "#",
+        },
+        {
+          name: t("links-1.links.5"),
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: t("links-2.title"),
+      links: [
+        {
+          name: t("links-2.links.1"),
+          url: "#",
+        },
+        {
+          name: t("links-2.links.2"),
+          url: "#",
+        },
+        {
+          name: t("links-2.links.3"),
+          url: "#",
+        },
+        {
+          name: t("links-2.links.4"),
+          url: "#",
+        },
+        {
+          name: t("links-2.links.5"),
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: t("links-3.title"),
+      links: [
+        {
+          name: t("links-3.links.1"),
+          url: "#",
+        },
+        {
+          name: t("links-3.links.2"),
+          url: "#",
+        },
+        {
+          name: t("links-3.links.3"),
+          url: "#",
+        },
+        {
+          name: t("links-3.links.4"),
+          url: "#",
+        },
+        {
+          name: t("links-3.links.5"),
+          url: "#",
+        },
+      ],
+    },
+  ];
+
   return (
-    <footer className="px-6 py-12 overflow-hidden bg-black text-text-dark">
+    <footer className="md:px-6 py-12 overflow-hidden bg-black text-text-dark">
       {/* Upper Footer */}
       <div className="max-w-7xl flex flex-col md:flex-row justify-between gap-12 mx-auto">
         {/* Left Section */}
         <div className="flex-1 flex md:flex-col justify-evenly">
-          <div className="flex items-center gap-1 mb-4 text-xl font-bold">
-             <img src={dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"} alt="logo" className="size-[24px]" />
-            Cashmarket
-          </div>
 
-          <div className="">
-            {/* Paragraph */}
+          {/* Logo */}
+          <Logo
+          styles="flex items-center gap-1 mb-4 text-xl font-bold"
+          size="size-[24px]"
+          dark={dark}
+          />
+
+          <div className="w-1/2">
+            {/* Slogan */}
             <p className="text-sm text-muted-dark mb-6">
-              Take Control of Your Crypto, <br />
-              Gain Clarity, <br />
-              Grow With Confidence.
+              {t("subtitle-1")} <br />
+              {t("subtitle-2")} <br />
+              {t("subtitle-3")}
             </p>
 
             {/* Socials */}
             <div className="flex gap-3">
               {socials.map((social, i) => (
-                <Link
+                <a
                   key={social.name}
                   href="#"
                   target="_blank"
@@ -144,23 +150,25 @@ export default function Footer() {
                   className="bg-muted p-2 rounded-md hover:bg-accent dark:hover:bg-accent-dark"
                 >
                   <social.icon />
-                </Link>
+                </a>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Links */}
-        <div className="flex flex-[2] justify-between">
+        {/* Links section */}
+        <div className="flex md:flex-[2] px-2 justify-between text">
+          {/* Column */}
           {footerLinks.map((column) => (
-            <div key={column.title}>
+            <div key={column.title} className="p-1">
               <h4 className="font-semibold mb-4">{column.title}</h4>
-              <ul className="space-y-2 text-sm text-muted-dark">
+              <ul className="space-y-2 text-[12px] md:text-sm text-muted-dark">
+                {/* Link */}
                 {column.links.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.url} className="hover:text-text-dark">
+                    <a href={link.url} className="hover:text-text-dark">
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -171,7 +179,7 @@ export default function Footer() {
 
       {/* Lower Footer */}
       <div className="text-center md:text-start mt-12 pt-6 text-sm border-t border-muted-dark/50 text-muted-dark/80">
-        <p>© 2026 Cashmarket. All rights reserved.</p>
+        <p>{t("bottom")}</p>
       </div>
     </footer>
   );

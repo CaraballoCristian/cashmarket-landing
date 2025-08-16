@@ -1,4 +1,3 @@
-"use client";
 // Utils
 import { motion, useScroll, useTransform } from "framer-motion";
 // Hooks
@@ -17,11 +16,13 @@ const FeatureCard = ({
   const container = useRef(null);
   const Icon = icon;
 
+  /* Works for every card */
   const { scrollYProgress: scrollImg } = useScroll({
     target: container,
     offset: ["start end", "start start"],
   });
 
+  /* Works on the father container */
   const { scrollYProgress: scrollCard } = useScroll({
     target: reference,
     offset: ["start start", "end end"],
@@ -36,13 +37,13 @@ const FeatureCard = ({
     /* Container */
     <div
       ref={container}
-      className="sticky top-0 h-screen flex items-center justify-center"
+      className="sticky top-0 h-screen flex items-center justify-center px-4"
     >
       {/* Card */}
       <motion.article
         /* Stacking */
         style={{ scale: cardScale, top: `calc(-10% + ${i * 25}px)` }}
-        className={`relative flex flex-col justify-center items-center gap-12 md:flex-row h-2/3 md:h-[450px] w-full lg:w-[1150px] p-6 rounded-2xl shadow-lg border border-primary-dark dark:border-primary shadow-primary-dark dark:shadow-primary bg-gradient-to-r from-accent to-primary
+        className={`relative flex flex-col justify-center items-center gap-12 md:flex-row h-[60%] md:h-[450px] w-full lg:w-[1150px] p-4 md:p-6 rounded-2xl shadow-lg border border-primary-dark dark:border-primary shadow-primary-dark dark:shadow-primary bg-gradient-to-r from-accent to-primary
           ${!isEven && "md:flex-row-reverse"}`}
       >
         {/* Picture */}
@@ -57,13 +58,16 @@ const FeatureCard = ({
 
         {/* Text */}
         <div className="w-full md:w-1/2 h-full text-center md:text-left">
-          <div className="flex gap-2">
-            <Icon className="text-2xl md:text-3xl font-bold text-bg mt-2"/>
-            <h3 className="text-2xl  md:text-3xl font-bold text-bg mt-2">
+          <div className="flex justify-center md:justify-start gap-2">
+            {/* Icon */}
+            <Icon className="text-2xl md:text-3xl font-bold text-bg mt-0 md:mt-2"/>
+            {/* Title */}
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-bg mt-0 md:mt-2">
               {title}
             </h3>
           </div>
-          <p className="text-muted dark:text-bg md:text-2xl font-semibold mt-8">
+          {/* Description */}
+          <p className="text-muted dark:text-bg md:text-xl lg:text-2xl font-semibold mt-8">
             {description}
           </p>
         </div>

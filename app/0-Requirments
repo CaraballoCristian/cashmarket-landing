@@ -1,7 +1,11 @@
-• Multi lang & Cringe Texts
-• que hago con el detector de utc? 
-• also, deberia guardar la preferencia del usuario para idioma as well
+// Seguir el orden!
 
-stars en el modal bg, pero que se muevan con el mouse (?)
+// check for ghost dependencies
+// close mobile nav on resize
 
-CTA invert button/img
+// TO-DO-LIST
+// 1. Revisar y corregir estilos en desktop y mobile para cada idioma
+// 3. Pushear el codigo a GH
+// 4. Deployar en Vercel
+// 5. Volver al repasar el codigo comentando TODO EL PROYECTO a modo de machete
+

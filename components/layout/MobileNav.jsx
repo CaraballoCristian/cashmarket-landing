@@ -1,15 +1,11 @@
-/* Podria abstraerse el Use Effect ya que se usa aca y en el nav */
-/* Mas alla de eso el componente esta listo */
-
 "use client";
-// Utils
-import { CiMenuFries } from "react-icons/ci";
 // Hooks
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 // Context
 import { useModal } from "@/context/ModalContext";
 import { useDark } from "@/context/DarkContext";
 // Ui
+import { CiMenuFries } from "react-icons/ci";
 import {
   Sheet,
   SheetContent,
@@ -17,56 +13,36 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Link from "next/link";
 import Button from "../ui/button";
+import Logo from "../ui/Logo";
+import DarkModeSwitcher from "../ui/DarkModeSwitcher";
+import LanguageSwitcher from "../ui/languageSwitcher";
 // Modals
 import LoginModalContent from "../modals/LoginModalContent";
 import SignUpModalContent from "../modals/SignUpModalContent";
+// i18n
+import { useLanguage } from "@/context/LanguageContext";
+// Utils
+import Nav from "./Nav";
 
 const MobileNav = ({ links }) => {
   const [open, setOpen] = useState(false);
   const { openModal } = useModal();
-  const [activeSection, setActiveSection] = useState("");
   const { toggleDark, dark } = useDark();
+  const { setLocale } = useLanguage();
 
   useEffect(() => {
-    const handleHash = () => setActiveSection(window.location.hash || "#home");
-
-    // When an anchor is clicked
-    window.addEventListener("hashchange", handleHash);
-
-    // Initial
-    handleHash();
-
-    // Scroll Observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Sets the active section based on scroll
-            const id = `#${entry.target.id}`;
-            setActiveSection(id);
-          }
-        });
-      },
-      {
-        // 60% of the element visible
-        threshold: 0.6,
-      }
-    );
-
-    // Observe each section defined in links
-    links.forEach((link) => {
-      const el = document.querySelector(link.path);
-      if (el) observer.observe(el);
-    });
-
-    // Remove event listener and close Intersection Observer
-    return () => {
-      window.removeEventListener("hashchange", handleHash);
-      observer.disconnect();
+    /* Close on resize */
+    const handleResize = () => {
+      if (open) setOpen(false);
     };
-  }, [links]);
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+
+  }, [open]);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -86,52 +62,30 @@ const MobileNav = ({ links }) => {
       {/* Content */}
       <SheetContent>
         <div className="relative h-full w-full flex flex-col gap-12 justify-evenly items-center p-4 bg-bg dark:bg-bg-dark">
-          {/* Dark Mode Switch */}
-          <div className="absolute top-1 left-3 text-center mb-4">
-            <button
-              className="p-2 text-[20px] cursor-pointer"
-              onClick={toggleDark}
-            >
-              {dark ? "🌙" : "🌞"}
-            </button>
+          {/* Wrapper Dark & Lang */}
+          <div className="absolute flex top-1  gap-2 left-3 text-center mb-4">
+            {/* Dark Mode Switch */}
+            <DarkModeSwitcher toggleDark={toggleDark} dark={dark} />
+
+            {/* Language Switcher */}
+            <LanguageSwitcher setLocale={setLocale} />
           </div>
+
           {/* Logo */}
-          <div className="text-center">
-            <Link onClick={() => setOpen(false)} href="#home">
-              <h1 className="text-3xl flex gap-1 items-start font-semibold text-text dark:text-text-dark">
-                <img
-                  src={
-                    dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"
-                  }
-                  alt="logo"
-                  className="size-[28px]"
-                />
-                Cashmarket.
-              </h1>
-            </Link>
+          <div className="text-center" onClick={() => setOpen(false)}>
+            <Logo
+              styles="text-3xl flex gap-1 items-start font-semibold text-text dark:text-text-dark"
+              size="size-[28px]"
+              dark={dark}
+            />
           </div>
 
           {/* Nav */}
-          <nav className="flex flex-col items-center gap-8 w-full py-8">
-            {links.map((link, i) => {
-              const isActive = link.path === activeSection;
-              return (
-                <Link
-                  onClick={() => setOpen(false)}
-                  href={link.path}
-                  key={i}
-                  className={`
-                  ${
-                    isActive &&
-                    "text-accent border-b-2 border-accent dark:text-accent-dark dark:border-accent-dark"
-                  }
-                  text-xl capitalize text-text dark:text-text-dark`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
+          <Nav
+            links={links}
+            navStyles={"flex flex-col items-center gap-8 w-full py-8"}
+            linkStyles={"text-xl capitalize text-text dark:text-text-dark"}
+          />
 
           {/* Buttons */}
           <div className="flex flex-col gap-2 w-full">

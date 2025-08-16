@@ -10,25 +10,24 @@ export const DarkProvider = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Read previously saved user preference
+      
+      // Reads Local Storage
       const storedTheme = localStorage.getItem("theme");
 
       if (storedTheme) {
-        // If StoredTheme === "dark" returns true
+        // StoredTheme === "dark" returns a boolean
         setDark(storedTheme === "dark");
       } else {
-        // If no saved preference, use system setting
+        
+        // Reads Preferred
         const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        // mediaQuery.matches returns true when preferred colos schema = "dark"
         setDark(mediaQuery.matches);
 
-        // e.matches = true when theme = "dark"
+        // Sets when it changes
         const handleChange = (e) => setDark(e.matches);
-
-        // adds a "change" event listener to window.matchMedia
         mediaQuery.addEventListener("change", handleChange);
 
-        // Remove the event listener 
+        // Cleanup
         return () => mediaQuery.removeEventListener("change", handleChange);
       }
     }

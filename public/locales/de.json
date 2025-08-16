@@ -1,0 +1,264 @@
+{
+  "header": {
+    "links": {
+      "home": "Startseite",
+      "features": "Funktionen",
+      "testimonials": "Erfahrungen",
+      "faqs": "FAQs",
+      "prototype": "Prototyp"
+    },
+    "login": "Anmelden",
+    "signup": "Registrieren!"
+  },
+  "hero": {
+    "badge": "Bankensicherheit",
+    "title-1": "Verwalten, Analysieren und",
+    "span": "Wachsen",
+    "title-2": "Ihre Kryptoassets",
+    "subtitle": "Verbinden Sie Ihre Wallets und Exchanges, um Ihr Portfolio in Echtzeit zu überwachen. Erhalten Sie Einblicke, vergleichen Sie Assets und optimieren Sie Ihre Krypto-Strategie",
+    "countup": "+ 5 Sterne",
+    "watch-demo": "Demo ansehen",
+    "get-started": "Loslegen"
+  },
+  "companies-section": {
+    "title-1": "Vertraut von",
+    "span": "2600+",
+    "title-2": "Wachsenden Unternehmen"
+  },
+  "features-section": {
+    "mini-features": {
+      "title": "WAS UNS",
+      "span": "UNTERSCHIEDLICH MACHT",
+      "subtitle": "Schnell, flexibel und für moderne Krypto-Investoren entwickelt. Von nahtlosem Management bis zu intelligenten Tools – wir definieren Portfolio-Tracking neu.",
+      "card-1": {
+        "title": "Kreditkarte",
+        "subtitle": "Belohnungen und Vorteile ohne die Nachteile einer Kreditkarte. Einfachheit und Transparenz inklusive."
+      },
+      "card-2": {
+        "title": "Management",
+        "subtitle": "Institutionelle Fondsangebote mit aktiven und passiven Strategien für schnelle, sichere Zahlungen."
+      },
+      "card-3": {
+        "title": "App",
+        "subtitle": "Mobile Banking bricht die Regeln und bietet ein präzises Werkzeug zur Verwaltung Ihrer Finanzen."
+      }
+    },
+    "cards": {
+      "card-1": {
+        "title": "Portfolio-Überwachung in Echtzeit",
+        "subtitle": "Behalten Sie Ihre Investitionen genau im Blick. Unsere Plattform liefert Live-Updates, interaktive Charts und nahtlose Datensynchronisation über alle Wallets und Exchanges hinweg."
+      },
+      "card-2": {
+        "title": "KI-gestützte Insights & Prognosen",
+        "subtitle": "Gehen Sie über Zahlen hinaus mit KI-gestützter Intelligenz. Unser System analysiert Marktmuster in Echtzeit und liefert präzise Vorhersagen, Risikoprofile und personalisierte Strategievorschläge."
+      },
+      "card-3": {
+        "title": "Multi-Exchange & Wallet Sync",
+        "subtitle": "Fassen Sie alle Ihre Kryptoassets in einem leistungsstarken Dashboard zusammen. Verbinden Sie mehrere Wallets und Exchanges mühelos, verfolgen Sie Ihre Performance und genießen Sie Enterprise-Level-Verschlüsselung."
+      },
+      "card-4": {
+        "title": "Intelligente Alerts & Benachrichtigungen",
+        "subtitle": "Reagieren Sie im richtigen Moment mit intelligenten Alerts, abgestimmt auf Ihre Strategie. Legen Sie eigene Regeln fest und erhalten Sie Echtzeit-Benachrichtigungen zu Preisbewegungen, Volumenspitzen oder Portfolio-Meilensteinen."
+      }
+    }
+  },
+  "testimonials-section": {
+    "title": "DAS SAGEN UNSERE NUTZER",
+    "subtitle": {
+      "part-1": "Egal, ob Sie ein kleines Team leiten oder ein globales Unternehmen skalieren – unsere Tools helfen Ihnen erfolgreich zu sein. ",
+      "span-1": "Echtzeit-Insights",
+      "span-2": "nahtlose Integrationen",
+      "part-3": ", und ",
+      "span-3": "verlässliche Performance",
+      "part-4": " sind nur einige Gründe, warum Profis weltweit uns täglich wählen. Schließen Sie sich der Bewegung an und entdecken Sie smarteres Arbeiten."
+    },
+    "testimonial-1": {
+      "content": "Diese Plattform hat die Arbeitsweise unseres Teams komplett verändert. Detailgenauigkeit und Performance sind unvergleichlich.",
+      "charge": "Produktmanager bei Stripe"
+    },
+    "testimonial-2": {
+      "content": "Seit der Integration dieses Tools ist das Kundenengagement um 40 % gestiegen. Intuitiv, elegant und funktioniert einwandfrei.",
+      "charge": "Marketing Director bei HubSpot"
+    },
+    "testimonial-3": {
+      "content": "Als Kleinunternehmer ist es selten, leistungsstarke und erschwingliche Tools zu finden. Diese Lösung trifft genau ins Schwarze.",
+      "charge": "Gründer von Holloway Studios"
+    },
+    "testimonial-4": {
+      "content": "Zuverlässig, skalierbar und mit exzellentem Support. Ein unverzichtbarer Teil unseres täglichen Betriebs.",
+      "charge": "Operations Lead bei Zendesk"
+    },
+    "testimonial-5": {
+      "content": "Ich war beeindruckt, wie schnell wir dies in unseren Workflow integrieren konnten. Die UX ist durchdacht und nahtlos.",
+      "charge": "UX Designer bei Airbnb"
+    },
+    "testimonial-6": {
+      "content": "Dieses Produkt lässt einen fragen, wie man jemals ohne es ausgekommen ist. Hervorragend in jeder Hinsicht.",
+      "charge": "CTO bei GreenWave Tech"
+    }
+  },
+  "faq-section": {
+    "title": "Fragen?",
+    "span": "Wir haben Antworten",
+    "questions": {
+      "question-1": "Welche Arten von Assets kann ich mit diesem Tool verfolgen?",
+      "answer-1": "Sie können Kryptowährungen aus allen Netzwerken, Tokens auf zentralisierten und dezentralen Exchanges, Stablecoins, NFTs und kompatible tokenisierte Assets überwachen.",
+      "question-2": "Ist die Synchronisation mit meinen Wallets sicher?",
+      "answer-2": "Ja. Wir verwenden reine Lesezugriffe über öffentliche APIs und verschlüsselte Schlüssel. Wir fragen niemals nach Zugriff auf Ihre Mittel oder privaten Schlüssel.",
+      "question-3": "Wie funktionieren die KI-gestützten Prognosen?",
+      "answer-3": "Unser System analysiert historische Daten, Markttrends und makroökonomische Variablen in Echtzeit, um personalisierte Insights zu liefern – ohne Ihr eigenes Urteilsvermögen zu ersetzen.",
+      "question-4": "Kann ich Echtzeit-Benachrichtigungen erhalten?",
+      "answer-4": "Ja. Sie können benutzerdefinierte Alerts nach Preis, Volumen, Trendwechseln, ungewöhnlichen Aktivitäten oder wichtigen Ereignissen einrichten. Benachrichtigungen werden sofort per E-Mail, Telegram oder App gesendet.",
+      "question-5": "Muss ich meine Wallets verbinden, um zu starten?",
+      "answer-5": "Nein. Sie können die Demo verwenden oder Assets manuell eingeben. Sobald Sie bereit sind, verbinden Sie Ihre Wallets und unterstützten Exchanges in Sekunden – sicher und einfach.",
+      "question-6": "Was unterscheidet dieses Tool von anderen?",
+      "answer-6": "Wir bieten eine saubere, schnelle und elegante Erfahrung, visuelle Insights, automatisierte KI-Analyse, echte Multi-Plattform-Synchronisierung und eine datenschutzorientierte Architektur – alles in einer nahtlosen Plattform."
+    }
+  },
+  "cta-section": {
+    "top": "LETZTER SCHLIFF",
+    "title": "Mit Leidenschaft für Innovation entwickelt.",
+    "subtitle": "Entdecken Sie, wie Cashmarket Krypto-Investoren mit elegantem Design und nahtloser UX unterstützt.",
+    "button": "Prototyp Erkunden"
+  },
+  "footer": {
+    "subtitle-1": "Übernehmen Sie die Kontrolle über Ihre Krypto,",
+    "subtitle-2": "Gewinnen Sie Klarheit,",
+    "subtitle-3": "Wachsen Sie mit Vertrauen.",
+    "links-1": {
+      "title": "Entdecken",
+      "links": {
+        "1": "Dashboard Übersicht",
+        "2": "Echtzeit-Tracking",
+        "3": "KI-Prognosen",
+        "4": "Alerts & Benachrichtigungen",
+        "5": "Preismodelle"
+      }
+    },
+    "links-2": {
+      "title": "Ressourcen",
+      "links": {
+        "1": "Wissensdatenbank",
+        "2": "Tutorials",
+        "3": "Sicherheit & Datenschutz",
+        "4": "FAQs",
+        "5": "Support"
+      }
+    },
+    "links-3": {
+      "title": "Unternehmen",
+      "links": {
+        "1": "Über CashMarket",
+        "2": "Karriere",
+        "3": "Blog",
+        "4": "Nutzungsbedingungen",
+        "5": "Datenschutzrichtlinie"
+      }
+    },
+    "bottom": "© 2026 Cashmarket. Alle Rechte vorbehalten."
+  },
+  "modals": {
+    "login": {
+      "title": "Anmelden",
+      "placeholders": {
+        "username": "Benutzername",
+        "password": "Passwort"
+      },
+      "feedback": {
+        "title": "Erfolgreich eingeloggt!",
+        "subtitle": "Einen schönen Tag noch! 💜"
+      },
+      "loading": "Einloggen...",
+      "button": "Anmelden",
+      "disclaimer": "Dies ist ein visueller Prototyp. Es werden keine Daten gesendet."
+    },
+    "signup": {
+      "title": "Registrieren",
+      "placeholders": {
+        "name": "Name",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "confirmation": "Passwort bestätigen"
+      },
+      "email": {
+        "required": "'E-Mail' ist ein Pflichtfeld",
+        "regex": "'E-Mail' muss eine gültige E-Mail-Adresse sein"
+      },
+      "password": {
+        "required": "'Passwort' ist ein Pflichtfeld",
+        "regex": "Das Passwort muss mindestens acht Zeichen lang sein und mindestens einen Buchstaben und eine Zahl enthalten"
+      },
+      "confirmation": {
+        "required": "'Passwort bestätigen' ist ein Pflichtfeld",
+        "match": "Passwort und Bestätigung stimmen nicht überein"
+      },
+      "feedback": {
+        "title": "Registrierung erfolgreich!",
+        "subtitle": "Hab einen schönen Tag! 💜"
+      },
+      "button": "Registrieren",
+      "loading": "Konto wird erstellt...",
+      "disclaimer": "Dies ist ein visuelles Prototyp. Es werden keine Daten übermittelt."
+    },
+    "watch-demo": {
+      "top": "Plattform-Demo",
+      "title": "Demo ansehen",
+      "placeholder": "E-mail",
+      "loading-demo": "Demo wird geladen...",
+      "feedback": {
+        "title": "✨ Du bist dabei!",
+        "subtitle": "Überprüfe deine E-Mails für die nächsten Schritte"
+      },
+
+      "cta": "Bereit, es selbst auszuprobieren?",
+      "button": "Frühen Zugriff erhalten",
+      "loading": "Tritt der Warteliste bei...",
+      "disclaimer": "Dies ist ein visuelles Prototyp. Das Video dient nur zu Demonstrationszwecken. Es werden keine Daten übermittelt"
+    },
+    "prototype": {
+      "header": {
+        "top": "Prototyp-Zugang",
+        "title": "Exklusiven Frühzugang erhalten zu"
+      },
+      "features": {
+        "1": "Fortgeschrittene Trading-Tools",
+        "2": "KI-Markteinblicke",
+        "3": "Mobile-First-Design",
+        "4": "Bankenlevel-Sicherheit"
+      },
+      "badge": "Tritt 2.847 Benutzern auf der Warteliste bei",
+      "placeholder": "E-Mail",
+      "button": "Frühen Zugriff erhalten",
+      "loading": "Tritt der Warteliste bei...",
+      "feedback": {
+        "title": "✨ Du bist dabei!",
+        "subtitle": "Überprüfe deine E-Mails für die nächsten Schritte"
+      },
+      "launch": "Erwarteter Start: Q2 2026",
+      "disclaimer": "Dies ist ein visuelles Prototyp. Es werden keine Daten übermittelt."
+    }
+  },
+  "validations": {
+    "name": {
+      "required": "'Name' ist ein Pflichtfeld",
+      "invalid": "'Name' darf nur Buchstaben und Leerzeichen enthalten",
+      "minLength": "'Name' muss mindestens 6 Zeichen lang sein"
+    },
+    "email": {
+      "required": "'E-Mail' ist ein Pflichtfeld",
+      "invalid": "'E-Mail' muss eine gültige E-Mail-Adresse sein"
+    },
+    "password": {
+      "required": "'Passwort' ist ein Pflichtfeld",
+      "invalid": "Das Passwort muss mindestens acht Zeichen lang sein und mindestens einen Buchstaben und eine Zahl enthalten"
+    },
+    "confirmation": {
+      "required": "'Passwort bestätigen' ist ein Pflichtfeld",
+      "invalid": "Passwort und Bestätigung stimmen nicht überein"
+    },
+    "username": {
+      "required": "'Benutzername' ist ein Pflichtfeld",
+      "invalid": "'Benutzername' muss 4-16 Zeichen lang sein und darf nur Buchstaben, Zahlen oder Unterstriche enthalten"
+    }
+  }
+}

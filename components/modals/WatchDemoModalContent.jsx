@@ -1,29 +1,27 @@
-/* Component Ready */
-
 // Hooks
 import { useState } from "react";
 // UI
 import { Video } from "lucide-react";
 import FooterDisclaimer from "../ui/footerDisclaimer";
 import CtaFeedback from "../ui/ctaFeedback";
-import ButtonForm from "../ui/button.jsx";
+import Button from "../ui/button.jsx";
+// i18n
+import { useTranslations } from "next-intl";
 
 export default function WatchDemoContent() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // loading button
+  const [isVideoLoading, setIsVideoLoading] = useState(true); // loading video
+  const t = useTranslations("modals.watch-demo");
 
   const handleVideoLoad = () => setIsVideoLoading(false);
 
-  /* Fake Interactions */
+  /* Fake Submit */
   const handleSubmit = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 2000);
     }, 3000);
   };
 
@@ -31,18 +29,18 @@ export default function WatchDemoContent() {
     <div className="w-full md:min-w-[600px] lg:min-w-[800px] flex flex-col gap-6">
       {/* Header */}
       <div className="text-center">
-        {/* Green text */}
+        {/* Top */}
         <div className="flex items-center justify-center gap-2 mb-2">
           <Video className="text-accent dark:text-accent-dark" size={24} />
           <span className="font-semibold text-lg text-accent dark:text-accent-dark ">
-            Platform Demo
+            {t("top")}
           </span>
         </div>
         {/* Title */}
         <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-2">
-          Watch the Demo
+          {t("title")}
         </h2>
-        {/* Bottom Line */}
+        {/* Underine */}
         <div className="w-12 h-1 bg-gradient-to-r from-accent to-primary rounded-full mx-auto" />
       </div>
 
@@ -56,7 +54,7 @@ export default function WatchDemoContent() {
                 {/* Loader */}
                 <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
                 <p className="text-sm text-muted dark:text-muted-dark">
-                  Loading demo...
+                  {t("loading-demo")}
                 </p>
               </div>
             </div>
@@ -80,16 +78,16 @@ export default function WatchDemoContent() {
           <div className="text-center">
             {/* CTA Text */}
             <p className="font-semibold mb-2 text-text dark:text-text-dark">
-              Ready to try it yourself?
+              {t("cta")}
             </p>
 
             {/* CTA Button */}
             <div className="max-w-[300px] mx-auto">
-              <ButtonForm
+              <Button
                 variant="form"
-                textValue={"Get Early Access"}
+                textValue={t("button")}
                 isLoading={isLoading}
-                loadingValue={"joining waitlist..."}
+                loadingValue={t("loading")}
                 handler={handleSubmit}
               />
             </div>
@@ -98,13 +96,13 @@ export default function WatchDemoContent() {
       ) : (
         /* CTA Feedback State */
         <CtaFeedback
-          title={"✨ You're in!"}
-          subtitle={"Check your email for next steps"}
+          title={t("feedback.title")}
+          subtitle={t("feedback.subtitle")}
         />
       )}
 
       {/* Footer Disclaimer */}
-      <FooterDisclaimer msg="This is a visual prototype. The video is for demo purposes. No data is being submitted" />
+      <FooterDisclaimer msg={t("disclaimer")} />
     </div>
   );
 }

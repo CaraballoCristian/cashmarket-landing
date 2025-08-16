@@ -1,5 +1,3 @@
-/* Este componente esta listo */
-
 // Utils
 import { motion } from "framer-motion";
 // UI
@@ -9,41 +7,40 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+// i18n
+import { useTranslations } from "next-intl";
 
-const faqs = [
-  {
-    question: "What types of assets can I track with this tool?",
-    answer:
-      "You can monitor cryptocurrencies from any network, tokens on centralized and decentralized exchanges, stablecoins, NFTs, and even compatible tokenized assets. If it has a public address, you can integrate it.",
-  },
-  {
-    question: "Is syncing with my wallets secure?",
-    answer:
-      "Yes. We use read-only connections through public APIs and encrypted keys. We never ask for access to your funds, private keys, or the ability to make transactions.",
-  },
-  {
-    question: "How do the AI-powered predictions work?",
-    answer:
-      "Our system analyzes historical data, market patterns, and macroeconomic variables in real time to provide personalized insights on risk, trends, and opportunities — without replacing your own judgment.",
-  },
-  {
-    question: "Can I receive real-time alerts?",
-    answer:
-      "Yes. You can set up custom alerts based on price, volume, trend shifts, unusual activity, or key events. Notifications are sent instantly via email, Telegram, or in-app messages.",
-  },
-  {
-    question: "Do I need to connect my wallets to get started?",
-    answer:
-      "No. You can use the demo version or manually enter your assets. When you're ready, you can connect your wallets and supported exchanges in seconds — securely and easily.",
-  },
-  {
-    question: "What makes this tool different from others?",
-    answer:
-      "We offer a clean, fast, and elegant experience with visual insights, automated AI analysis, real multi-platform syncing, and a privacy-first architecture — all in one seamless platform.",
-  },
-];
 
 const FaqSection = () => {
+  const t = useTranslations("faq-section");
+
+  const faqs = [
+    {
+      question: t("questions.question-1"),
+      answer: t("questions.answer-1"),
+    },
+    {
+      question: t("questions.question-2"),
+      answer: t("questions.answer-2"),
+    },
+    {
+      question: t("questions.question-3"),
+      answer: t("questions.answer-3"),
+    },
+    {
+      question: t("questions.question-4"),
+      answer: t("questions.answer-4"),
+    },
+    {
+      question: t("questions.question-5"),
+      answer: t("questions.answer-5"),
+    },
+    {
+      question: t("questions.question-6"),
+      answer: t("questions.answer-6"),
+    },
+  ];
+
   return (
     <section id="faq" className="bg-primary dark:bg-primary-dark py-36">
       {/* Container */}
@@ -63,11 +60,12 @@ const FaqSection = () => {
           viewport={{ once: false }}
           className="text-center my-15 text-bg"
         >
-          Got Questions?{" "}
+          {t("title")}{" "}
           <span className="text-accent-dark dark:text-accent">
-            We've Got Answers
+            {t("span")}
           </span>
         </motion.h2>
+        
         {/* Content */}
         <Accordion
           type="single"

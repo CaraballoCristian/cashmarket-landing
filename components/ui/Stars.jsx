@@ -5,14 +5,23 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Stars = ({ sectionRef, content }) => {
+const Stars = ({
+  sectionRef,
+  content,
+  type = "scroll",
+  quantity,
+  bgColor = "white",
+}) => {
   const starsRef = useRef([]);
-  const stars = 200; /* stars quantity */
+  const stars = quantity; /* stars quantity */
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (type === "scroll") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
 
     const staticSectionRef = sectionRef.current;
+    let handleMouseMove = null;
 
     starsRef.current.forEach((star, i) => {
       /* Stars Size Limit */
@@ -22,42 +31,79 @@ const Stars = ({ sectionRef, content }) => {
       gsap.set(star, {
         width: `${size}px`,
         height: `${size}px`,
-        backgroundColor: "white",
+        backgroundColor: bgColor,
         opacity: 0.2 + Math.random() * 0.4,
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
       });
     });
 
-    // Floating stars animation
-    starsRef.current.forEach((star, index) => {
-      const direction = index % 2 === 0 ? 1 : -1;
-      const speed = 0.5 + Math.random() * 0.5;
+    // Scroll-based animation
+    if (type === "scroll") {
+      starsRef.current.forEach((star, index) => {
+        const direction = index % 2 === 0 ? 1 : -1;
+        const speed = 0.5 + Math.random() * 0.5;
 
-      gsap.to(star, {
-        x: `${direction * (100 + index * 20)}`,
-        y: `${direction * (-50 - index * 10)}`,
-        rotation: direction * 360,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: speed,
-        },
+        gsap.to(star, {
+          x: `${direction * (100 + index * 20)}`,
+          y: `${direction * (-50 - index * 10)}`,
+          rotation: direction * 360,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: speed,
+          },
+        });
       });
-    });
+
+      // Mouse movement animation
+    } else if (type === "mouse") {
+      handleMouseMove = (e) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+
+        // Normalize mouse position (-1 to 1)
+        const normalizedX = (clientX / innerWidth) * 2 - 1;
+        const normalizedY = (clientY / innerHeight) * 2 - 1;
+
+        starsRef.current.forEach((star, index) => {
+          // Different movement intensity for each star
+          const intensity = ((index % 5) + 1) * 0.5; // 0.5 to 2.5
+          const moveX = normalizedX * intensity * 50; // Max 125px movement
+          const moveY = normalizedY * intensity * 50;
+
+          gsap.to(star, {
+            x: -moveX,
+            y: -moveY,
+            rotation: normalizedX * intensity * 10, // Slight rotation based on mouse X
+            duration: 0.2,
+            ease: "power2.out",
+          });
+        });
+      };
+
+      // Mouse move listener
+      window.addEventListener("mousemove", handleMouseMove);
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === staticSectionRef) {
-          trigger.kill(); // Clean up the ScrollTrigger instances
-        }
-      });
+      if (type === "scroll") {
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.vars.trigger === staticSectionRef) {
+            // Clean up the ScrollTrigger instances
+            trigger.kill();
+          }
+        });
+      } else if (type === "mouse" && handleMouseMove) {
+        // Clean up mouse listener
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
     };
-  }, []);
+  }, [type]);
 
-  /* Check for every star (div) to exist and not to be in starRef already, then it pushes the star to starRef */
+  /* Check for every star to exist and not to be in starRef already, then it pushes the star to starRef */
   const addToStars = (el) => {
     if (el && !starsRef.current.includes(el)) {
       starsRef.current.push(el);
@@ -73,7 +119,7 @@ const Stars = ({ sectionRef, content }) => {
           key={`star-${i}`}
           className="absolute flex items-center justify-center rounded-full"
         >
-          <img src={content} className="size-full object-cover" />
+          {content && <img src={content} className="size-full object-cover" />}
         </div>
       ))}
     </div>

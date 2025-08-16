@@ -1,14 +1,17 @@
 "use client";
 // Hooks
 import { useState } from "react";
+import { useValidations } from "@/hooks/useValidations";
+// Context
+import { useModal } from "@/context/ModalContext";
 // UI
 import { User, Mail, Lock, CheckCircle } from "lucide-react";
-// Utils
-import { helpValidations } from "@/helpers/helpValidations";
 import Input from "../ui/input";
 import FooterDisclaimer from "../ui/footerDisclaimer";
 import Button from "../ui/button";
 import CtaFeedback from "../ui/ctaFeedback";
+// i18n
+import { useTranslations } from "next-intl";
 
 const initialForm = {
   name: "",
@@ -22,32 +25,10 @@ export default function SignUpContent() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // On blur
-  const handleBlur = (e) => {
-    const { name, value } = e.target;
-
-    // Sets form values
-    const updatedForm = { ...form, [name]: value };
-
-    // Validate all inputs
-    const fieldErrors = helpValidations(form);
-
-    // Set state for every key that contains an error
-    if (fieldErrors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: fieldErrors[name],
-      }));
-      // if error doesnt exist, clean the error related to that key
-    } else {
-      setErrors((prev) => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
-    }
-  };
+  const { closeModal } = useModal();
+  const t = useTranslations("modals.signup");
+  const v = useTranslations("validations");
+  const validateForm = useValidations(v);
 
   // On Change
   const handleChange = (e) => {
@@ -61,34 +42,34 @@ export default function SignUpContent() {
   // On Submit
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validations to avoid forcing disabled buttons
+    const fieldErrors = validateForm(form);
+    setErrors(fieldErrors);
+
+    // Is any fiels is empty, returns
+    if (
+      !form.name.trim() ||
+      !form.email.trim() ||
+      !form.password.trim() ||
+      !form.confirmation.trim() ||
+      Object.keys(fieldErrors).length !== 0
+    ) {
+      setTimeout(() => setErrors({}), 1000);
+      return;
+    }
+    // Simulate Sign Up
     setIsLoading(true);
 
-    setErrors(helpValidations(form));
-
-    // Simulate Sign Up
     setTimeout(() => {
       setIsLoading(false);
+      setIsSubmitted(true);
 
-      // If any field is empty, or contains errors
-      if (
-        !form.name ||
-        !form.email ||
-        !form.password ||
-        !form.confirmation ||
-        Object.keys(errors).length !== 0
-      ) {
-        window.alert("Incomplete or wrong data");
-        return;
-      } else {
-        // Show success
-        setIsSubmitted(true);
-
-        // Reset Form
-        setTimeout(() => {
-          setForm(initialForm);
-          setIsSubmitted(false);
-        }, 2000);
-      }
+      setTimeout(() => {
+        setForm(initialForm);
+        setIsSubmitted(false);
+        closeModal();
+      }, 2000);
     }, 3000);
   };
 
@@ -97,7 +78,7 @@ export default function SignUpContent() {
       {/* Header */}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-2">
-          Sign Up!
+          {t("title")}
         </h2>
         <div className="w-12 h-1 bg-gradient-to-r from-accent to-primary rounded-full mx-auto"></div>
       </div>
@@ -112,10 +93,9 @@ export default function SignUpContent() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Name"
+              placeholder={t("placeholders.name")}
               icon={User}
-              error={errors.name}
+              error={errors.name && errors.name}
             />
 
             {/* Email Input */}
@@ -124,10 +104,9 @@ export default function SignUpContent() {
               name="email"
               value={form.email}
               onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Email"
+              placeholder={t("placeholders.email")}
               icon={Mail}
-              error={errors.email}
+              error={errors.email && errors.email}
             />
 
             {/* Password Input */}
@@ -136,10 +115,9 @@ export default function SignUpContent() {
               name="password"
               value={form.password}
               onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Password"
+              placeholder={t("placeholders.password")}
               icon={Lock}
-              error={errors.password}
+              error={errors.password && errors.password}
             />
 
             {/* Confirm Password Input */}
@@ -148,39 +126,37 @@ export default function SignUpContent() {
               name="confirmation"
               value={form.confirmation}
               onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Confirm Password"
+              placeholder={t("placeholders.confirmation")}
               icon={CheckCircle}
-              error={errors.confirmation}
+              error={errors.confirmation && errors.confirmation}
             />
           </>
         ) : (
-          /* CTA Feedback State (Displays After Submit) */
+          /* CTA Feedback */
           <CtaFeedback
-            title={"SignUp Succesful!"}
-            subtitle={"Have a nice day! 💜"}
+            title={t("feedback.title")}
+            subtitle={t("feedback.subtitle")}
           />
         )}
         {/* Sign Up Button */}
         <Button
           variant="form"
-          textValue={"Sign Up"}
+          textValue={t("button")}
           disabledCondition={
             !form.name ||
             !form.email ||
             !form.password ||
             !form.confirmation ||
-            isLoading ||
-            form.password !== form.confirmation
-          }
+            isLoading
+          } 
           isLoading={isLoading}
-          loadingValue={"Creating account..."}
+          loadingValue={t("loading")}
           handler={handleSubmit}
         />
       </form>
 
       {/* Footer Disclaimer */}
-      <FooterDisclaimer msg="This is a visual prototype. No data is being submitted." />
+      <FooterDisclaimer msg={t("disclaimer")} />
     </div>
   );
 }

@@ -1,10 +1,264 @@
 {
-  "hero": {
-    "title": "Gestiona tu portafolio cripto con estilo",
-    "subtitle": "Monitorea, analiza y haz crecer tus activos en tiempo real."
+  "header": {
+    "links": {
+      "home": "inicio",
+      "features": "funciones",
+      "testimonials": "testimonios",
+      "faqs": "preguntas",
+      "prototype": "prototipo"
+    },
+    "login": "Ingresar",
+    "signup": "¡Registrarse!"
   },
-  "buttons": {
-    "explore": "Explorar el prototipo",
-    "getStarted": "Comenzar"
+  "hero": {
+    "badge": "Seguridad nivel bancario",
+    "title-1": "Monitorea, Analiza y",
+    "span": "Haz Crecer",
+    "title-2": "Tus Criptoactivos",
+    "subtitle": "Conecta tus wallets e intercambios para controlar tu portafolio en tiempo real. Obtén insights, compara activos y optimiza tu estrategia cripto",
+    "countup": "+ 5 Estrellas",
+    "watch-demo": "Ver Demo",
+    "get-started": "¡Comenzar!"
+  },
+  "companies-section": {
+    "title-1": "Confiado por",
+    "span": "2600+",
+    "title-2": "Empresas en Crecimiento"
+  },
+  "features-section": {
+    "mini-features": {
+      "title": "LO QUE NOS",
+      "span": "DISTINGUE",
+      "subtitle": "Rápido, flexible y diseñado para inversores cripto modernos. Desde gestión sin esfuerzo hasta herramientas inteligentes, redefinimos el seguimiento de portafolios.",
+      "card-1": {
+        "title": "Tarjeta de Crédito",
+        "subtitle": "Beneficios sin los inconvenientes tradicionales. Simplicidad y transparencia integradas."
+      },
+      "card-2": {
+        "title": "Gestión",
+        "subtitle": "Ofertas de fondos de nivel institucional, activas y pasivas, con pagos rápidos y seguros."
+      },
+      "card-3": {
+        "title": "Aplicación",
+        "subtitle": "Banca móvil que rompe las reglas y te da una herramienta precisa para administrar tus finanzas."
+      }
+    },
+    "cards": {
+      "card-1": {
+        "title": "Monitoreo de Portafolio en Tiempo Real",
+        "subtitle": "Mantente al tanto de tus inversiones con precisión. Nuestra plataforma ofrece actualizaciones en vivo, gráficos interactivos avanzados y sincronización fluida de datos entre todas tus wallets e intercambios."
+      },
+      "card-2": {
+        "title": "Insights y Predicciones con IA",
+        "subtitle": "Ve más allá de los números con inteligencia impulsada por IA. Nuestro sistema analiza patrones del mercado en tiempo real, proporcionando pronósticos precisos y sugerencias estratégicas personalizadas."
+      },
+      "card-3": {
+        "title": "Sincronización Multi-Wallet y Exchange",
+        "subtitle": "Agrupa todos tus criptoactivos en un único dashboard potente. Conecta múltiples wallets e intercambios, monitorea tu rendimiento y disfruta de encriptación de nivel empresarial."
+      },
+      "card-4": {
+        "title": "Alertas y Notificaciones Inteligentes",
+        "subtitle": "Reacciona en el momento adecuado con alertas personalizadas según tu estrategia. Configura reglas y recibe notificaciones de movimientos de precio, picos de volumen o hitos del portafolio."
+      }
+    }
+  },
+  "testimonials-section": {
+    "title": "LO QUE DICEN NUESTROS USUARIOS",
+    "subtitle": {
+      "part-1": "Ya sea que lideres un equipo pequeño o una empresa global, nuestras herramientas te ayudan a sobresalir. ",
+      "span-1": "Insights en tiempo real",
+      "span-2": "integraciones sin fricciones",
+      "part-3": ", y ",
+      "span-3": "rendimiento impecable",
+      "part-4": " son solo algunas de las razones por las que profesionales alrededor del mundo nos eligen. Únete y descubre cómo trabajar de manera más inteligente."
+    },
+    "testimonial-1": {
+      "content": "Esta plataforma ha transformado por completo cómo trabajamos. La atención al detalle y el rendimiento son excepcionales.",
+      "charge": "Product Manager en Stripe"
+    },
+    "testimonial-2": {
+      "content": "Hemos visto un aumento del 40% en la interacción con clientes desde que integramos esta herramienta. Intuitiva, elegante y funciona.",
+      "charge": "Director de Marketing en HubSpot"
+    },
+    "testimonial-3": {
+      "content": "Como pequeño negocio, encontrar herramientas poderosas y accesibles es difícil. Esta solución lo consigue perfectamente.",
+      "charge": "Fundador de Holloway Studios"
+    },
+    "testimonial-4": {
+      "content": "Fiable, escalable y con excelente soporte. Se ha vuelto esencial en nuestras operaciones diarias.",
+      "charge": "Jefe de Operaciones en Zendesk"
+    },
+    "testimonial-5": {
+      "content": "Me impresionó lo rápido que integramos esto en nuestro flujo. La experiencia de usuario es fluida y pensada.",
+      "charge": "UX Designer en Airbnb"
+    },
+    "testimonial-6": {
+      "content": "Este producto hace que te preguntes cómo vivías sin él. Excepcional en todos los aspectos.",
+      "charge": "CTO en GreenWave Tech"
+    }
+  },
+  "faq-section": {
+    "title": "¿Tienes Preguntas?",
+    "span": "Tenemos Respuestas",
+    "questions": {
+      "question-1": "¿Qué tipos de activos puedo rastrear con esta herramienta?",
+      "answer-1": "Puedes monitorear criptomonedas de cualquier red, tokens en exchanges centralizados y descentralizados, stablecoins, NFTs y otros activos tokenizados compatibles.",
+      "question-2": "¿Es seguro sincronizar con mis wallets?",
+      "answer-2": "Sí. Usamos conexiones solo lectura a través de APIs públicas y claves encriptadas. Nunca pedimos acceso a tus fondos o claves privadas.",
+      "question-3": "¿Cómo funcionan las predicciones impulsadas por IA?",
+      "answer-3": "Nuestro sistema analiza datos históricos, patrones del mercado y variables macroeconómicas en tiempo real para ofrecer insights personalizados sin reemplazar tu juicio.",
+      "question-4": "¿Puedo recibir alertas en tiempo real?",
+      "answer-4": "Sí. Puedes configurar alertas personalizadas según precio, volumen, tendencias o eventos clave. Las notificaciones llegan al instante vía email, Telegram o la app.",
+      "question-5": "¿Necesito conectar mis wallets para empezar?",
+      "answer-5": "No. Puedes usar la demo o ingresar tus activos manualmente. Cuando estés listo, conecta tus wallets y exchanges soportados en segundos, de forma segura.",
+      "question-6": "¿Qué diferencia esta herramienta de otras?",
+      "answer-6": "Ofrecemos experiencia limpia y rápida, insights visuales, análisis automatizado con IA, sincronización real multi-plataforma y arquitectura centrada en la privacidad."
+    }
+  },
+  "cta-section": {
+    "top": "TOQUE FINAL",
+    "title": "Diseñado con pasión por la innovación.",
+    "subtitle": "Descubre cómo Cashmarket empodera a los inversores cripto con diseño elegante y UX fluida.",
+    "button": "Explorar el Prototipo"
+  },
+  "footer": {
+    "subtitle-1": "Toma el Control de Tus Criptos,",
+    "subtitle-2": "Gana Claridad,",
+    "subtitle-3": "Crece con Confianza.",
+    "links-1": {
+      "title": "Explorar",
+      "links": {
+        "1": "Resumen del Dashboard",
+        "2": "Seguimiento en Tiempo Real",
+        "3": "Predicciones con IA",
+        "4": "Alertas y Notificaciones",
+        "5": "Planes de Precio"
+      }
+    },
+    "links-2": {
+      "title": "Recursos",
+      "links": {
+        "1": "Base de Conocimiento",
+        "2": "Tutoriales",
+        "3": "Seguridad y Privacidad",
+        "4": "FAQs",
+        "5": "Soporte"
+      }
+    },
+    "links-3": {
+      "title": "Compañía",
+      "links": {
+        "1": "Sobre CashMarket",
+        "2": "Carreras",
+        "3": "Blog",
+        "4": "Términos de Servicio",
+        "5": "Política de Privacidad"
+      }
+    },
+    "bottom": "© 2026 Cashmarket. Todos los derechos reservados."
+  },
+  "modals": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "placeholders": {
+        "username": "usuario",
+        "password": "contraseña"
+      },
+      "feedback": {
+        "title": "¡Inicio de sesión exitoso!",
+        "subtitle": "¡Que tengas un buen día! 💜"
+      },
+      "loading": "Iniciando sesión...",
+      "button": "Entrar",
+      "disclaimer": "Este es un prototipo visual. Ningún dato será enviado."
+    },
+    "signup": {
+      "title": "Registro",
+      "placeholders": {
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "confirmation": "Confirmar Contraseña"
+      },
+      "email": {
+        "required": "'Correo electrónico' es un campo obligatorio",
+        "regex": "'Correo electrónico' debe ser una dirección válida"
+      },
+      "password": {
+        "required": "'Contraseña' es un campo obligatorio",
+        "regex": "La contraseña debe tener al menos ocho caracteres, incluyendo al menos una letra y un número"
+      },
+      "confirmation": {
+        "required": "'Confirmar Contraseña' es un campo obligatorio",
+        "match": "La contraseña y la confirmación no coinciden"
+      },
+      "feedback": {
+        "title": "¡Registro exitoso!",
+        "subtitle": "¡Que tengas un excelente día! 💜"
+      },
+      "button": "Registrarse",
+      "loading": "Creando cuenta...",
+      "disclaimer": "Este es un prototipo visual. No se están enviando datos."
+    },
+    "watch-demo": {
+      "top": "Demo de la Plataforma",
+      "title": "Ver la Demo",
+      "placeholder": "Correo electrónico",
+      "loading-demo": "Cargando Demo...",
+      "feedback": {
+        "title": "✨ ¡Estás dentro!",
+        "subtitle": "Revisa tu correo electrónico para los próximos pasos"
+      },
+
+      "cta": "¿Listo para probarlo tú mismo?",
+      "button": "Obtener Acceso Anticipado",
+      "loading": "Uniéndote a la lista de espera...",
+      "disclaimer": "Este es un prototipo visual. El video es solo con fines de demostración. No se están enviando datos"
+    },
+    "prototype": {
+      "header": {
+        "top": "Acceso al Prototipo",
+        "title": "Obtén acceso exclusivo anticipado a"
+      },
+      "features": {
+        "1": "Herramientas Avanzadas de Trading",
+        "2": "Insights de Mercado con IA",
+        "3": "Diseño Mobile-First",
+        "4": "Seguridad de Nivel Bancario"
+      },
+      "badge": "Únete a 2.847 usuarios en la lista de espera",
+      "placeholder": "Correo electrónico",
+      "button": "Acceso Anticipado",
+      "loading": "Uniéndote a la lista de espera...",
+      "feedback": {
+        "title": "✨ ¡Estás dentro!",
+        "subtitle": "Revisa tu correo electrónico para los próximos pasos"
+      },
+      "launch": "Lanzamiento esperado: Q2 2026",
+      "disclaimer": "Este es un prototipo visual. No se están enviando datos."
+    }
+  },
+  "validations": {
+    "name": {
+      "required": "'Nombre' es un campo obligatorio",
+      "invalid": "'Nombre' solo acepta letras y espacios",
+      "minLength": "'Nombre' debe tener al menos 6 caracteres"
+    },
+    "email": {
+      "required": "'Correo electrónico' es un campo obligatorio",
+      "invalid": "'Correo electrónico' debe ser una dirección válida"
+    },
+    "password": {
+      "required": "'Contraseña' es un campo obligatorio",
+      "invalid": "La contraseña debe tener al menos ocho caracteres, incluyendo al menos una letra y un número"
+    },
+    "confirmation": {
+      "required": "'Confirmar Contraseña' es un campo obligatorio",
+      "invalid": "La contraseña y la confirmación no coinciden"
+    },
+    "username": {
+      "required": "'Nombre de usuario' es un campo obligatorio",
+      "invalid": "'Nombre de usuario' debe tener entre 4 y 16 caracteres, solo letras, números o guiones bajos"
+    }
   }
 }

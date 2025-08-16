@@ -8,7 +8,7 @@ const Button = ({
 }) => {
   // Tailwind Clases
   let styles =
-    "relative rounded-xl transition-colors duration-200 transform overflow-hidden font-semibold disabled:cursor-not-allowed disabled:from-muted/40 disabled:to-muted/80 dark:disabled:from-muted-dark/70 dark:disabled:to-muted-dark/30 py-2 px-5 text-nowrap  cursor-pointer";
+    "relative rounded-xl transition-colors duration-200 transform overflow-hidden font-semibold disabled:cursor-not-allowed disabled:from-muted/40 disabled:to-muted/80 dark:disabled:from-muted-dark/70 dark:disabled:to-muted-dark/30 py-2 px-5 text-nowrap cursor-pointer";
 
   // Space between clases
   styles += " ";
@@ -28,7 +28,7 @@ const Button = ({
     /* B&W Buttons */
     case "black&white":
       styles +=
-        "w-full md:w-fit px-6 py-3 mt-10 font-semibold bg-white text-black dark:bg-black dark:text-white hover:text-white hover:bg-black dark:hover:text-black dark:hover:bg-white";
+        "w-full lg:w-fit px-6 py-3 mt-10 font-semibold bg-white text-black dark:bg-black dark:text-white hover:text-white hover:bg-black dark:hover:text-black dark:hover:bg-white";
       break;
     /* Gray Buttons */
     default:

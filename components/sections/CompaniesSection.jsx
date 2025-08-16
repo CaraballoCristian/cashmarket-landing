@@ -1,8 +1,3 @@
-/* Este componente esta terminado */
-/* Podria cargar los colores del degradado de la marquee como variables */
-
-"use client";
-
 // Utils
 import { motion } from "framer-motion";
 // UI
@@ -16,6 +11,8 @@ import {
 } from "react-icons/fa";
 // Context
 import { useDark } from "@/context/DarkContext";
+// i18n
+import { useTranslations } from "next-intl";
 
 const brands = [
   {
@@ -40,15 +37,14 @@ const brands = [
   },
 ];
 
-const CompaniesSection = () => {    
-const {dark} = useDark();
+const CompaniesSection = () => {
+  const { dark } = useDark();
+  const t = useTranslations("companies-section");
 
   return (
     <section className="h-full pb-10 bg-primary dark:bg-primary-dark">
-      
       {/* Container */}
       <div className="containe flex flex-col gap-8 p-2 mx-auto">
-        
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 100 }}
@@ -64,9 +60,10 @@ const {dark} = useDark();
           viewport={{ once: false }}
           className="py-10 text-center text-text dark:text-text-dark"
         >
-          Trusted by <span className="text-bg dark:text-accent-dark">2600+</span> Growing Companies
+          {t("title-1")}{" "}
+          <span className="text-bg dark:text-accent-dark">{t("span")}</span> {t("title-2")}
         </motion.h2>
-        
+
         {/* Companies Marquee */}
         <Marquee
           speed={50}

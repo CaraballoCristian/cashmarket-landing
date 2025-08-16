@@ -1,13 +1,17 @@
-/* Component Ready */
 "use client";
 // Hooks
 import { useState } from "react";
+import { useValidations } from "@/hooks/useValidations";
 // UI
 import { User, Lock } from "lucide-react";
 import Input from "../ui/input";
 import FooterDisclaimer from "../ui/footerDisclaimer";
 import Button from "../ui/button.jsx";
 import CtaFeedback from "../ui/ctaFeedback";
+// Context
+import { useModal } from "@/context/ModalContext";
+// i18n
+import { useTranslations } from "next-intl";
 
 const initialForm = {
   username: "",
@@ -16,35 +20,44 @@ const initialForm = {
 
 export default function LoginContent() {
   const [form, setForm] = useState(initialForm);
-  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+  const { closeModal } = useModal();
+  const t = useTranslations("modals.login");
+  const v = useTranslations("validations");
+  const validateForm = useValidations(v);
 
   // On Submit
   const handleSubmit = (e) => {
-    e.stopPropagation();
     e.preventDefault();
 
+    // Validations to avoid forcing disabled buttons
+    const fieldErrors = validateForm(form);
+    setErrors(fieldErrors);
+
+    // If any field is empty returns
+    if (
+      !form.username.trim() ||
+      !form.password.trim() ||
+      Object.keys(fieldErrors).length !== 0
+    ) {
+      setTimeout(() => setErrors({}), 1000);
+      return;
+    }
+    
+    // Simulate Login
     setIsLoading(true);
 
-    // Simulate Login
     setTimeout(() => {
       setIsLoading(false);
+      setIsSubmitted(true);
 
-      // If any field is empty
-      if (!form.username || !form.password) {
-        setError("Incomplete Data");
-        return;
-      } else {
-        // Show success
-        setIsSubmitted(true);
-
-        // Reset Form
-        setTimeout(() => {
-          setForm(initialForm);
-          setIsSubmitted(false);
-        }, 2000);
-      }
+      setTimeout(() => {
+        setForm(initialForm);
+        setIsSubmitted(false);
+        closeModal();
+      }, 2000);
     }, 3000);
   };
 
@@ -63,7 +76,7 @@ export default function LoginContent() {
       <div className="text-center mb-6">
         {/* Title */}
         <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-2">
-          Login
+          {t("title")}
         </h2>
         {/* Underline */}
         <div className="w-12 h-1 rounded-full mx-auto bg-gradient-to-r from-accent-dark to-primary" />
@@ -79,8 +92,9 @@ export default function LoginContent() {
               name="username"
               value={form.username}
               onChange={handleChange}
-              placeholder="Username"
+              placeholder={t("placeholders.username")}
               icon={User}
+              error={errors.username && errors.username}
             />
 
             {/* Password Input */}
@@ -89,33 +103,34 @@ export default function LoginContent() {
               name="password"
               value={form.password}
               onChange={handleChange}
-              placeholder="Password"
+              placeholder={t("placeholders.password")}
               icon={Lock}
+              error={errors.password && errors.password}
             />
           </>
         ) : (
-          /* CTA Feedback State (Displays After Submit) */
+          /* CTA Feedback */
           <CtaFeedback
-            title={"Login Succesful!"}
-            subtitle={"Have a nice day! 💜"}
+            title={t("feedback.title")}
+            subtitle={t("feedback.subtitle")}
           />
         )}
 
         {/* Login Button */}
         <Button
           variant="form"
-          textValue={"Login"}
-          disabledCondition={!form.username || !form.password || isLoading}
+          textValue={t("button")}
+          disabledCondition={
+            !form.username.trim() || !form.password.trim() || isLoading
+          }
           isLoading={isLoading}
-          loadingValue={"Logging in..."}
+          loadingValue={t("loading")}
           handler={handleSubmit}
         />
       </form>
 
       {/* Footer Disclaimer */}
-      <FooterDisclaimer
-        msg={"This is a visual prototype. No data is being submitted."}
-      />
+      <FooterDisclaimer msg={t("disclaimer")} />
     </div>
   );
 }

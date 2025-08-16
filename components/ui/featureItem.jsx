@@ -1,5 +1,3 @@
-import React from "react";
-
 const FeatureItem = ({msg, icon}) => {
   const Icon = icon;
 

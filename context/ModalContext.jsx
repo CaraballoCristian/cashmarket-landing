@@ -7,20 +7,16 @@ export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
-  // Prevent scroll when modal is open (Important: Do not touch overflow-x)
+  // Important: Do not touch overflow-x!
+  // it breakes overflow-hidden and horizontal-scroll breaks UI
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'unset';
-    }
+    // Prevent scroll when modal is open
+    if (isOpen) document.body.style.overflowY = "hidden";
+    else document.body.style.overflowY = "unset";
 
     // Cleanup
-    return () => {
-      document.body.style.overflowY = 'unset';
-    };
+    return () => (document.body.style.overflowY = "unset");
   }, [isOpen]);
-
 
   const openModal = (content = null) => {
     setIsOpen(true);

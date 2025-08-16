@@ -1,5 +1,3 @@
-/* Este componente esta listo */
-"use client"
 // UI
 import { FaBell, FaRegClock, FaRobot, FaWallet } from "react-icons/fa6";
 // Components
@@ -10,42 +8,40 @@ import FeatureCard from "@/components/ui/FeatureCard";
 import { useRef } from "react";
 // Context
 import { useDark } from "@/context/DarkContext";
-
-
-const features = [
-  {
-    icon: FaRegClock,
-    title: "Real-Time Portfolio Monitoring",
-    description:
-      "Stay on top of your investments with precision. Our platform delivers live updates, advanced interactive charts, and seamless data sync across all your wallets and exchanges—so you’re always in control, no matter where you are.",
-    image: "/assets/Features-1.jpg",
-  },
-  {
-    icon: FaRobot,
-    title: "AI Insights & Predictions",
-    description:
-      "Go beyond the numbers with AI-driven intelligence. Our system analyzes market patterns in real time to provide accurate forecasts, risk profiling, and personalized strategic suggestions—helping you make smarter decisions with confidence.",
-    image: "/assets/Features-2.jpg",
-  },
-  {
-    icon: FaWallet,
-    title: "Multi-Exchange & Wallet Sync",
-    description:
-      "Bring all your crypto assets together in one powerful dashboard. Connect multiple wallets and exchanges effortlessly, track your performance in real time, and enjoy enterprise-grade encryption that keeps your data safe and private.",
-    image: "/assets/Features-3.jpg",
-  },
-  {
-    icon: FaBell,
-    title: "Smart Alerts & Notifications",
-    description:
-      "React at the right moment with intelligent alerts tailored to your strategy. Set custom rules and receive real-time notifications on key price movements, volume spikes, or portfolio milestones—so you never miss a beat in the market.",
-    image: "/assets/Features-4.jpg",
-  },
-];
+// i18n
+import { useTranslations } from "next-intl";
 
 const Features = () => {
   const staticSectionRef = useRef();
   const { dark } = useDark();
+  const t = useTranslations("features-section.cards");
+
+  const features = [
+    {
+      icon: FaRegClock,
+      title: t("card-1.title"),
+      description: t("card-1.subtitle"),
+      image: "/assets/Features-1.jpg",
+    },
+    {
+      icon: FaRobot,
+      title: t("card-2.title"),
+      description: t("card-2.subtitle"),
+      image: "/assets/Features-2.jpg",
+    },
+    {
+      icon: FaWallet,
+      title: t("card-3.title"),
+      description: t("card-3.subtitle"),
+      image: "/assets/Features-3.jpg",
+    },
+    {
+      icon: FaBell,
+      title: t("card-4.title"),
+      description: t("card-4.subtitle"),
+      image: "/assets/Features-4.jpg",
+    },
+  ];
 
   return (
     <section className="relative">
@@ -55,13 +51,13 @@ const Features = () => {
       {/* Mini Features */}
       <MiniFeatures />
 
-      {/* Stars Container */}
-      <div ref={staticSectionRef} 
-      className="relative h-full w-screen">
+      {/* All Cards Container */}
+      <div ref={staticSectionRef} className="relative h-full w-screen">
         {/* Stars */}
         <Stars
           sectionRef={staticSectionRef}
           content={dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"}
+          quantity={200}
         />
 
         {/* Feature Cards */}

@@ -1,7 +1,3 @@
-/* Este componente esta terminado */
-/* Se podria extraer el gradiente como componente o UI */
-
-"use client";
 // Utils
 import { motion } from "framer-motion";
 // Context
@@ -24,27 +20,32 @@ import { useTranslations } from "next-intl";
 const Hero = () => {
   const { openModal } = useModal();
   const { dark } = useDark();
-  const t = useTranslations();
+  const t = useTranslations("hero");
 
   return (
     <section id="home" className="relative dark:text-text-dark">
       {/* Container */}
       <div className="container w-full h-full flex flex-col items-center gap-5 mx-auto pt-30">
         {/* Badge */}
-        <Badge msg={"Bank-level security"} icon={GiPadlock} />
+        <Badge msg={t("badge")} icon={GiPadlock} />
 
         {/* Text */}
-        <div className="max-w-[800px] gap-2 flex flex-col mx-auto items-center text-center px-4 xl:px-0 ">
+        <div className=" gap-2 flex flex-col mx-auto items-center text-center px-4 xl:px-0 ">
+          {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center text-4xl md:text-6xl font-bold"
+            className="text-center text-2xl xl:text-nowrap md:text-6xl font-bold"
           >
-            Track, Analyze and{" "}
-            <span className="text-accent dark:text-accent-dark">Grow</span> Your
-            Crypto Assets
+            {t("title-1")}{" "}
+            <span className="text-accent dark:text-accent-dark text-nowrap">
+              {t("span")}
+            </span><br />
+            {t("title-2")}
           </motion.h1>
+
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,22 +53,19 @@ const Hero = () => {
             className="font-semibold max-w-[60ch]"
           >
             {" "}
-            {t("hero.subtitle")}
-            {/* Connect your wallets and exchanges to monitor your portfolio in real
-            time. Gain insights, compare assets, and optimize your crypto
-            strategy */}
+            {t("subtitle")}
           </motion.p>
         </div>
 
         {/* Buttons */}
         <div className="flex gap-3">
           <Button
-            textValue={"Watch Demo"}
+            textValue={t("watch-demo")}
             handler={() => openModal(<WatchDemoModalContent />)}
           />
           <Button
             variant="accent"
-            textValue={"Get Started!"}
+            textValue={t("get-started")}
             handler={() => openModal(<SignUpModalContent />)}
           />
         </div>
@@ -86,7 +84,7 @@ const Hero = () => {
 
             {/* Counter */}
             <p className="font-semibold text-lg">
-              <CountUp end={4200} duration={5} delay={0.5} />+ 5 Stars
+              <CountUp end={4200} duration={5} delay={0.5} />{t("countup")}
             </p>
           </div>
 

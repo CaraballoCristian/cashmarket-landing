@@ -1,7 +1,269 @@
 {
+  "header": {
+    "links": {
+      "home": "home",
+      "features": "features",
+      "testimonials": "testimonials",
+      "faqs": "FAQ",
+      "prototype": "prototype"
+    },
+    "login": "Login",
+    "signup": "Sign Up!"
+  },
   "hero": {
-    "title": "Manage your crypto portfolio with style",
-    "subtitle": "Track, analyze, and grow your assets in real time."
-  }
+    "badge": "Bank-level security",
+    "title-1": "Track, Analyze and",
+    "span": "Grow",
+    "title-2": "Your Crypto Assets",
+    "subtitle": "Connect your wallets and exchanges to monitor your portfolio in real time. Gain insights, compare assets, and optimize your crypto strategy",
+    "countup": "+ 5 Stars",
+    "watch-demo": "Watch Demo",
+    "get-started": "Get Started!"
+  },
+  "companies-section": {
+    "title-1": "Trusted By",
+    "span": "2600+",
+    "title-2": "Growing Companies"
+  },
+  "features-section": {
+    "mini-features": {
+      "title": "WHAT MAKES US",
+      "span": "DIFFERENT",
+      "subtitle": "Fast, flexible, and built for modern crypto investors. From seamless management to intelligent tools, we redefine portfolio tracking.",
+      "card-1": {
+        "title": "Credit Card",
+        "subtitle": "Rewards and benefits without the downsides of a credit card. Simplicity and transparency built right in."
+      },
+      "card-2": {
+        "title": "Management",
+        "subtitle": "Institutional-grade fund offerings across active and passive strategies to get in paid flash payments."
+      },
+      "card-3": {
+        "title": "Application",
+        "subtitle": "Mobile banking throws out the rule book and gives you a precision tool for managing your finances."
+      }
+    },
+    "cards": {
+      "card-1": {
+        "title": "Real-Time Portfolio Monitoring",
+        "subtitle": "Stay on top of your investments with precision. Our platform delivers live updates, advanced interactive charts, and seamless data sync across all your wallets and exchanges—so you’re always in control, no matter where you are."
+      },
+      "card-2": {
+        "title": "AI Insights & Predictions",
+        "subtitle": "Go beyond the numbers with AI-driven intelligence. Our system analyzes market patterns in real time to provide accurate forecasts, risk profiling, and personalized strategic suggestions—helping you make smarter decisions with confidence."
+      },
+      "card-3": {
+        "title": "Multi-Exchange & Wallet Sync",
+        "subtitle": "Bring all your crypto assets together in one powerful dashboard. Connect multiple wallets and exchanges effortlessly, track your performance in real time, and enjoy enterprise-grade encryption that keeps your data safe and private."
+      },
+      "card-4": {
+        "title": "Smart Alerts & Notifications",
+        "subtitle": "React at the right moment with intelligent alerts tailored to your strategy. Set custom rules and receive real-time notifications on key price movements, volume spikes, or portfolio milestones—so you never miss a beat in the market."
+      }
+    }
+  },
+  "testimonials-section": {
+    "title": "HERE'S WHAT PEOPLE ARE SAYING",
+    "subtitle": {
+      "part-1": "Whether you're managing a team of five or scaling a global enterprise, our tools are built to help you succeed. ",
+      "span-1": "Real-time insights",
+      "span-2": "seamless integrations",
+      "part-3": ", and ",
+      "span-3": "bulletproof performance",
+      "part-4": "are just a few of the reasons why professionals around the world choose us every day. Join the movement and discover what it means to work smarter, not harder."
+    },
+    "testimonial-1": {
+      "content": "This platform has completely transformed the way our team operates. The attention to detail and performance is unmatched.",
+      "charge": "Product Manager at Stripe"
+    },
+    "testimonial-2": {
+      "content": "We've seen a 40% increase in client engagement since integrating this tool. It's intuitive, elegant, and simply works.",
+      "charge": "Marketing Director at HubSpot"
+    },
 
+    "testimonial-3": {
+      "content": "As a small business owner, finding tools that are both powerful and affordable is rare. This solution hits the sweet spot perfectly.",
+      "charge": "Founder of Holloway Studios"
+    },
+
+    "testimonial-4": {
+      "content": "Reliable, scalable, and backed by great support. It's become an essential part of our daily operations.",
+      "charge": "Operations Lead at Zendesk"
+    },
+
+    "testimonial-5": {
+      "content": "I was impressed by how fast we were able to integrate this into our workflow. The UX is thoughtful and seamless.",
+      "charge": "UX Designer at Airbnb"
+    },
+
+    "testimonial-6": {
+      "content": "This is the kind of product that makes you wonder how you ever lived without it. Exceptional in every aspect.",
+      "charge": "CTO at GreenWave Tech"
+    }
+  },
+  "faq-section": {
+    "title": "Got Questions?",
+    "span": "We've Got Answers",
+    "questions": {
+      "question-1": "What types of assets can I track with this tool?",
+      "answer-1": "You can monitor cryptocurrencies from any network, tokens on centralized and decentralized exchanges, stablecoins, NFTs, and even compatible tokenized assets. If it has a public address, you can integrate it.",
+      "question-2": "Is syncing with my wallets secure?",
+      "answer-2": "Yes. We use read-only connections through public APIs and encrypted keys. We never ask for access to your funds, private keys, or the ability to make transactions.",
+      "question-3": "How do the AI-powered predictions work?",
+      "answer-3": "Our system analyzes historical data, market patterns, and macroeconomic variables in real time to provide personalized insights on risk, trends, and opportunities — without replacing your own judgment.",
+      "question-4": "Can I receive real-time alerts?",
+      "answer-4": "Yes. You can set up custom alerts based on price, volume, trend shifts, unusual activity, or key events. Notifications are sent instantly via email, Telegram, or in-app messages.",
+      "question-5": "Do I need to connect my wallets to get started?",
+      "answer-5": "No. You can use the demo version or manually enter your assets. When you're ready, you can connect your wallets and supported exchanges in seconds — securely and easily.",
+      "question-6": "What makes this tool different from others?",
+      "answer-6": "We offer a clean, fast, and elegant experience with visual insights, automated AI analysis, real multi-platform syncing, and a privacy-first architecture — all in one seamless platform."
+    }
+  },
+  "cta-section": {
+    "top": "FINAL TOUCH",
+    "title": "Built with passion for innovation.",
+    "subtitle": "Discover how Cashmarket empowers crypto investors through sleek design and seamless UX.",
+    "button": "Explore the Prototype"
+  },
+  "footer": {
+    "subtitle-1": "Take Control of Your Crypto,",
+    "subtitle-2": "Gain Clarity,",
+    "subtitle-3": "Grow With Confidence.",
+    "links-1": {
+      "title": "Explore",
+      "links": {
+        "1": "Dashboard Overview",
+        "2": "Real-Time Tracking",
+        "3": "AI Predictions",
+        "4": "Alerts & Notifications",
+        "5": "Pricing Plans"
+      }
+    },
+    "links-2": {
+      "title": "Resources",
+      "links": {
+        "1": "Knowledge Base",
+        "2": "Tutorials",
+        "3": "Security & Privacy",
+        "4": "FAQs",
+        "5": "Contact Support"
+      }
+    },
+    "links-3": {
+      "title": "Company",
+      "links": {
+        "1": "About CashMarket",
+        "2": "Careers",
+        "3": "Blog",
+        "4": "Terms of Service",
+        "5": "Privacy Policy"
+      }
+    },
+    "bottom": "© 2026 Cashmarket. All rights reserved."
+  },
+  "modals": {
+    "login": {
+      "title": "Login",
+      "placeholders": {
+        "username": "Username",
+        "password": "Password"
+      },
+      "feedback": {
+        "title": "Login Succesful!",
+        "subtitle": "Have a nice day! 💜"
+      },
+      "loading": "Logging in...",
+      "button": "Login",
+      "disclaimer": "This is a visual prototype. No data is being submitted."
+    },
+    "signup": {
+      "title": "Signup",
+      "placeholders": {
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmation": "Confirm Password"
+      },
+      "email": {
+        "required": "'Email' is a required field",
+        "regex": "'Email' must be a valid email address"
+      },
+      "password": {
+        "required": "'Password' is a required field",
+        "regex": "Password must contain at least eight characters, including at least one letter and one number"
+      },
+      "confirmation": {
+        "required": "'Confirm Password' is a required field",
+        "match": "Password and confirmation do not match"
+      },
+      "feedback": {
+        "title": "SignUp Succesful!",
+        "subtitle": "Have a nice day! 💜"
+      },
+      "button": "Sign Up",
+      "loading": "Creating account...",
+      "disclaimer": "This is a visual prototype. No data is being submitted."
+    },
+    "watch-demo": {
+      "top": "Platform Demo",
+      "title": "Watch the Demo",
+
+      "placeholder": "Email",
+      "loading-demo": "Loading Demo...",
+      "feedback": {
+        "title": "✨ You're in!",
+        "subtitle": "Check your email for next steps"
+      },
+
+      "cta": "Ready to try it yourself?",
+      "button": "Get Early Access",
+      "loading": "Joining waitlist...",
+      "disclaimer": "This is a visual prototype. The video is for demo purposes. No data is being submitted"
+    },
+    "prototype": {
+      "header": {
+        "top": "Prototype Access",
+        "title": "Get exclusive early access to"
+      },
+      "features": {
+        "1": "Advanced Trading Tools",
+        "2": "AI Market Insights",
+        "3": "Mobile-First Design",
+        "4": "Bank-Level Security"
+      },
+      "badge": "Join 2,847 users on the waitlist",
+      "placeholder": "Email",
+      "button": "Get Early Access",
+      "loading": "Joining waitlist...",
+      "feedback": {
+        "title": "✨ You're in!",
+        "subtitle": "Check your email for next steps"
+      },
+      "launch": "Expected launch: Q2 2026",
+      "disclaimer": "This is a visual prototype. No data is being submitted."
+    }
+  },
+  "validations": {
+    "name": {
+      "required": "'Name' is a required field",
+      "invalid": "'Name' only accepts letters and spaces",
+      "minLength": "'Name' must be at least 6 characters long"
+    },
+    "email": {
+      "required": "'Email' is a required field",
+      "invalid": "'Email' must be a valid email address"
+    },
+    "password": {
+      "required": "'Password' is a required field",
+      "invalid": "Password must contain at least eight characters, including at least one letter and one number"
+    },
+    "confirmation": {
+      "required": "'Confirm Password' is a required field",
+      "invalid": "Password and confirmation do not match"
+    },
+    "username": {
+      "required": "'Username' is a required field",
+      "invalid": "'Username' must be 4-16 characters, letters, numbers, or underscores only"
+    }
+  }
 }

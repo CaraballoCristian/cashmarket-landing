@@ -29,7 +29,7 @@ const MobileNav = ({ links }) => {
   const [open, setOpen] = useState(false);
   const { openModal } = useModal();
   const { toggleDark, dark } = useDark();
-  const { setLocale } = useLanguage();
+  const { locale, setLocale } = useLanguage();
 
   useEffect(() => {
     /* Close on resize */
@@ -74,7 +74,7 @@ const MobileNav = ({ links }) => {
             <DarkModeSwitcher toggleDark={toggleDark} dark={dark} />
 
             {/* Language Switcher */}
-            <LanguageSwitcher setLocale={setLocale} />
+            <LanguageSwitcher setLocale={setLocale} locale={locale} />
           </div>
 
 

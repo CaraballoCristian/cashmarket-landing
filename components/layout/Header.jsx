@@ -24,7 +24,7 @@ import Logo from "../ui/Logo";
 const Header = () => {
   const { openModal } = useModal();
   const { toggleDark, dark } = useDark();
-  const { setLocale } = useLanguage();
+  const { locale, setLocale } = useLanguage();
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
   const t = useTranslations("header");
@@ -110,7 +110,7 @@ const Header = () => {
             </div>
 
             {/* Language Switcher */}
-            <LanguageSwitcher setLocale={setLocale} />
+            <LanguageSwitcher setLocale={setLocale} locale={locale}/>
           </div>
 
           {/* CTA Buttons */}

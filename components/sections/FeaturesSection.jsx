@@ -11,6 +11,7 @@ import useIsDesktop from "@/hooks/useIsDesktop";
 import { useDark } from "@/context/DarkContext";
 // i18n
 import { useTranslations } from "next-intl";
+import FeatureCardMobile from "../ui/FeatureCardMobile";
 
 const Features = () => {
   const staticSectionRef = useRef();
@@ -67,7 +68,8 @@ const Features = () => {
         {/* Feature Cards */}
         {features.map((feature, i) => {
           const targetScale = 1 - (features.length - i) * 0.05;
-          return (
+
+          return isDesktop ? (
             <FeatureCard
               key={i}
               i={i}
@@ -75,6 +77,13 @@ const Features = () => {
               isEven={i % 2 === 0}
               targetScale={targetScale}
               referece={staticSectionRef}
+              />
+            ) : (
+              <FeatureCardMobile
+              key={i}
+              i={i}
+              {...feature}
+              isEven={i % 2 === 0}
             />
           );
         })}

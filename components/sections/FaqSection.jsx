@@ -58,7 +58,7 @@ const FaqSection = () => {
             ease: "easeOut",
           }}
           viewport={{ once: false }}
-          className="text-center my-15 text-bg"
+          className="text-center text-3xl md:text-3xl lg:text-4xl my-15 text-bg"
         >
           {t("title")}{" "}
           <span className="text-accent-dark dark:text-accent">
@@ -92,11 +92,13 @@ const FaqSection = () => {
                 className="border-b border-accent"
               >
                 <AccordionItem value={i + 1}>
-                  <AccordionTrigger className="font-extrabold text-xl hover:text-accent-dark dark:hover:text-shadow-accent">
+                  <AccordionTrigger className="font-extrabold text-lg md:text-xl lg:text-2xl hover:text-accent-dark dark:hover:text-shadow-accent">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-xl font-semibold">
-                    <p>{faq.answer}</p>
+                    <p
+                    className="text-lg md:text-xl lg:text-2xl"
+                    >{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>

@@ -73,9 +73,9 @@ const Hero = () => {
         {/* Bottom section */}
         <div className="relative w-screen overflow-hidden text-center z-50">
           {/* Trustpilot */}
-          <div className="flex items-center justify-center gap-2 pt-2 pb-8">
+          <div className="flex items-center justify-center gap-2 pt-2 px-4 pb-8">
             <SiTrustpilot className="h-[24px] w-[24px] text-accent dark:text-accent-dark" />
-            <h3>Trustpilot</h3>
+            <h3 className="text-sm md:text-lg">Trustpilot</h3>
 
             {/* Stars */}
             <div className="mx-1">
@@ -83,7 +83,7 @@ const Hero = () => {
             </div>
 
             {/* Counter */}
-            <p className="font-semibold text-lg">
+            <p className="font-semibold text-sm md:text-lg">
               <CountUp end={4200} duration={5} delay={0.5} />{t("countup")}
             </p>
           </div>

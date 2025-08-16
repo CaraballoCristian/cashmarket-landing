@@ -37,11 +37,11 @@ const CtaSection = () => {
             {t("top")}
           </p>
           {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-2xl my-3 lg:my-0 md:text-4xl font-bold">
             {t("title")}
           </h2>
           {/* Paragraph */}
-          <p className="text-lg mb-6 text-white/80 dark:text-black/80 font-semibold">
+          <p className="text-md md:text-lg mb-6 text-white/80 dark:text-black/80 font-semibold">
             {t("subtitle")}
           </p>
 

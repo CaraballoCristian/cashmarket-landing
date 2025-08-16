@@ -162,7 +162,7 @@ export default function Footer() {
           {footerLinks.map((column) => (
             <div key={column.title} className="p-1">
               <h4 className="font-semibold mb-4">{column.title}</h4>
-              <ul className="space-y-2 text-[12px] md:text-sm text-muted-dark">
+              <ul className="space-y-2 text-[10px] md:text-sm text-muted-dark">
                 {/* Link */}
                 {column.links.map((link) => (
                   <li key={link.name}>

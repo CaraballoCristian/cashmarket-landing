@@ -61,15 +61,26 @@ const MobileNav = ({ links }) => {
 
       {/* Content */}
       <SheetContent>
-        <div className="relative h-full w-full flex flex-col gap-12 justify-evenly items-center p-4 bg-bg dark:bg-bg-dark">
+        <div className="relative h-full w-full flex flex-col justify-between items-center px-4 pb-12 pt-1 ">
+         
+
+
+
+
+
           {/* Wrapper Dark & Lang */}
-          <div className="absolute flex top-1  gap-2 left-3 text-center mb-4">
+          <div className="flex top-1  w-full gap-2 left-3 text-center ">
             {/* Dark Mode Switch */}
             <DarkModeSwitcher toggleDark={toggleDark} dark={dark} />
 
             {/* Language Switcher */}
             <LanguageSwitcher setLocale={setLocale} />
           </div>
+
+
+
+
+
 
           {/* Logo */}
           <div className="text-center" onClick={() => setOpen(false)}>
@@ -88,7 +99,7 @@ const MobileNav = ({ links }) => {
           />
 
           {/* Buttons */}
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2 w-full mb-8">
             <Button
               textValue={"Login"}
               handler={() => {

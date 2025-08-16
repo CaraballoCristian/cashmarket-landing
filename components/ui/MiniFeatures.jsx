@@ -48,7 +48,7 @@ export default function MiniFeatures() {
               duration: 0.6,
               ease: "easeOut",
             }}
-            className="text-3xl md:text-4xl font-bold text-text dark:text-text-dark"
+            className="text-3xl md:text-3xl lg:text-4xl font-bold text-text dark:text-text-dark"
           >
             {t("title")}{" "}
             <span className="text-bg dark:text-accent-dark">{t("span")}</span>

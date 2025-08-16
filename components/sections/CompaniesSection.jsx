@@ -58,7 +58,7 @@ const CompaniesSection = () => {
             ease: "easeOut",
           }}
           viewport={{ once: false }}
-          className="py-10 text-center text-text dark:text-text-dark"
+          className="py-10 text-center text-text text-3xl md:text-3xl lg:text-4xl dark:text-text-dark"
         >
           {t("title-1")}{" "}
           <span className="text-bg dark:text-accent-dark">{t("span")}</span> {t("title-2")}

@@ -6,6 +6,7 @@ import MiniFeatures from "@/components/ui/MiniFeatures";
 import FeatureCard from "@/components/ui/FeatureCard";
 // Hooks
 import { useRef } from "react";
+import useIsDesktop from "@/hooks/useIsDesktop";
 // Context
 import { useDark } from "@/context/DarkContext";
 // i18n
@@ -15,6 +16,7 @@ const Features = () => {
   const staticSectionRef = useRef();
   const { dark } = useDark();
   const t = useTranslations("features-section.cards");
+  const isDesktop = useIsDesktop();
 
   const features = [
     {
@@ -54,11 +56,13 @@ const Features = () => {
       {/* All Cards Container */}
       <div ref={staticSectionRef} className="relative h-full w-screen">
         {/* Stars */}
-        <Stars
-          sectionRef={staticSectionRef}
-          content={dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"}
-          quantity={200}
-        />
+        {isDesktop && (
+          <Stars
+            sectionRef={staticSectionRef}
+            content={dark ? "/assets/logo-dark.png" : "/assets/logo-light.png"}
+            quantity={200}
+          />
+        )}
 
         {/* Feature Cards */}
         {features.map((feature, i) => {

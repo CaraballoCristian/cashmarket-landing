@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
         {/* Testimonials Text */}
         <div className="text-center lg:text-start w-full max-w-[500px] lg:max-w-full lg:w-1/2 mx-auto py-4 lg:px-8 ">
           {/* Title */}
-          <motion.h3
+          <motion.h2
             initial={{ opacity: 0, x: -100 }}
             whileInView={{
               opacity: 1,
@@ -75,10 +75,10 @@ const TestimonialsSection = () => {
               ease: "easeOut",
             }}
             viewport={{ once: false }}
-            className=" text-accent dark:text-accent-dark lg:text-3xl pb-10"
+            className=" text-accent dark:text-accent-dark text-3xl md:text-3xl lg:text-4xl pb-10"
           >
             {t("title")}
-          </motion.h3>
+          </motion.h2>
 
           {/* Paragraph */}
           <motion.p
@@ -138,10 +138,10 @@ const TestimonialsSection = () => {
               return (
                 <SwiperSlide key={i} className="gap-4 flex ">
                   <article className="h-full flex flex-col px-6 justify-center bg-bg dark:bg-bg-dark dark:text-text-dark rounded-2xl">
-                    <div className="flex justify-evenly px-6 py-8 gap-2">
+                    <div className="flex justify-evenly px-2 md:px-6 lg:py-8 gap-2">
                       <FaQuoteLeft className="text-[40px]  text-accent dark:text-accent-dark" />
                       {/* Testimonial */}
-                      <p className="text-xl font-semibold max-w-[50ch] text-center">
+                      <p className="text-md md:text-lg font-semibold max-w-[50ch] text-center">
                         {testimonial.testimonial}
                       </p>
                       <FaQuoteRight className="text-[40px] text-accent dark:text-accent-dark" />
@@ -153,12 +153,12 @@ const TestimonialsSection = () => {
                       <img
                         src={testimonial.src}
                         alt=""
-                        className="max-h-[100px] rounded-full"
+                        className="max-h-[50px] md:max-h-[100px] rounded-full"
                       />
                       {/* Name & Charge */}
                       <div className="flex flex-col gap-1">
-                        <h4 className="font-semibold">{testimonial.author}</h4>
-                        <p className="text-accent dark:text-accent-dark">
+                        <h4 className="font-semibold text-sm">{testimonial.author}</h4>
+                        <p className="text-accent dark:text-accent-dark text-sm">
                           {testimonial.charge}
                         </p>
                         <Stars />

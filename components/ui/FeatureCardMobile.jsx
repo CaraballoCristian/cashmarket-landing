@@ -3,7 +3,7 @@ const FeatureCardMobile = ({ icon, title, description, image, isEven, i }) => {
 
   return (
     /* Container */
-    <div className="sticky top-0 h-screen flex items-center justify-center px-4">
+    <div className="sticky top-0 h-[90vh] flex items-center justify-center px-4">
       {/* Card */}
       <article
         /* Stacking */

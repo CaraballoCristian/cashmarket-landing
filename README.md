@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 CashMarket Landing
 
-## Getting Started
+Landing page for **CashMarket**, a fictional SaaS for **crypto portfolio tracking**.  
+Designed with focus on **storytelling, modern animations, multi-language support and professional UI/UX**.
 
-First, run the development server:
+---
+
+## 🌐 Live Demo
+
+🔗 https://cashmarket-landing.vercel.app/
+
+---
+
+🚀 Installation & Setup
 
 ```bash
+# Clone the repository:
+git clone https://github.com/tuusuario/cashmarket-landing.git
+
+# Install dependencies:
+npm install
+
+# Run development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Open in browser:
+http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🖼️ Preview
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 📱 **Mobile-first & fully responsive**
+- 🌙 **Dark / Light mode toggle**
+- 🌍 **Internationalization (multi-language support)** using `next-intl`
+- ⚡ **Smooth animations** with Framer Motion & GSAP
+- ✅ **Form validation** with custom hooks
+- 🖼️ Visual storytelling for a SaaS concept
+- ♻️ Reusable components and clean architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js (App Router)](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [GSAP](https://greensock.com/gsap/)
+- [Next-intl](https://next-intl-docs.vercel.app/) – (i18n support)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📂 Project Structure
+
+```bash
+cashmarket-landing/
+│── app/                 # Next.js app router
+│   ├── layout.jsx
+│   ├── page.jsx
+│   └── globals.css
+│── components/
+│   ├── layout/          # Layout: header, footer, nav
+│   ├── modals/          # Modal components
+│   ├── sections/        # Landing sections (Hero, Features, FAQ, etc)
+│   └── ui/              # UI reusable components
+│── context/             # DarkMode, Language, Modal contexts
+└── hooks/               # Custom React hooks
+
+```
+
+
+👨‍💻 Author
+
+Developed by Cristian Caraballo

@@ -29,8 +29,9 @@ http://localhost:3000
 
 ---
 
-
 🖼️ Preview
+![Landing Preview](./public/landing-mockup.png)
+
 
 ---
 

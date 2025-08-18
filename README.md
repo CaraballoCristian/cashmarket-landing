@@ -7,23 +7,24 @@ Designed with focus on **storytelling, modern animations, multi-language support
 
 ## 🌐 Live Demo
 
-🔗 [View online on Vercel]https://cashmarket-landing.vercel.app/
+🔗 https://cashmarket-landing.vercel.app/
 
 ---
 
 🚀 Installation & Setup
 `
-// Clone the repository:
+# Clone the repository:
 git clone https://github.com/tuusuario/cashmarket-landing.git
 
-// Install dependencies:
+# Install dependencies:
 npm install
 
-// Run development server:
+# Run development server:
 npm run dev
 
-Open in browser:
+# Open in browser:
 http://localhost:3000
+
 `
 ---
 
@@ -50,7 +51,7 @@ http://localhost:3000
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [GSAP](https://greensock.com/gsap/)
-- [Next-intl](https://next-intl-docs.vercel.app/) – i18n support
+- [Next-intl](https://next-intl-docs.vercel.app/) – (i18n support)
 
 ---
 
@@ -72,7 +73,7 @@ cashmarket-landing/
 
 ```
 
+
 👨‍💻 Author
 
 Developed by Cristian Caraballo
-💼 LinkedIn: https://www.linkedin.com/in/cristiancaraballo/

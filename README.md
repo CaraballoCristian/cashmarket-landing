@@ -12,7 +12,8 @@ Designed with focus on **storytelling, modern animations, multi-language support
 ---
 
 🚀 Installation & Setup
-`
+
+```bash
 # Clone the repository:
 git clone https://github.com/tuusuario/cashmarket-landing.git
 
@@ -24,9 +25,10 @@ npm run dev
 
 # Open in browser:
 http://localhost:3000
+```
 
-`
 ---
+
 
 🖼️ Preview
 

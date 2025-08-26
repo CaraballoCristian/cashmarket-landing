@@ -73,7 +73,7 @@ export default function PrototypeContent() {
   return (
     <div className="w-full max-w-md mx-auto">
       {/* Header */}
-      <div className="text-center mb-6 bg-gradient-to-r from-primary-dark/80 to-accent/80 dark:from-accent/20 dark:to-primary/20 p-3 rounded-xl">
+      <div className="text-center mb-6 bg-gradient-to-r from-primary-dark/80 to-accent/80 dark:from-accent/20 dark:to-primary/20 p-3 rounded-xl mt-3">
         <div className="flex items-center justify-center gap-2 mb-2">
           <Zap className="text-bg dark:text-accent" size={24} />
           {/* Top */}

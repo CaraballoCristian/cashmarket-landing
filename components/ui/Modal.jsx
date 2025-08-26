@@ -31,7 +31,7 @@ export const Modal = () => {
     /* Blurred Screen */
     <div
       ref={container}
-      onClick={() => closeModal()}
+      /* onClick={() => closeModal()} */
       className="fixed w-screen inset-0 z-[999] flex items-center justify-center px-4 md:px-0 bg-black/80 backdrop-blur-[10px]"
     >
       {/* Stars */}

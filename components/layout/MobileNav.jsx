@@ -41,7 +41,6 @@ const MobileNav = ({ links }) => {
 
     // Cleanup
     return () => window.removeEventListener("resize", handleResize);
-
   }, [open]);
 
   return (
@@ -62,7 +61,6 @@ const MobileNav = ({ links }) => {
       {/* Content */}
       <SheetContent>
         <div className="relative h-full w-full flex flex-col justify-between items-center px-4 pb-12 pt-1 ">
-         
           {/* Wrapper Dark & Lang */}
           <div className="flex top-1  w-full gap-2 left-3 text-center ">
             {/* Dark Mode Switch */}

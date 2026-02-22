@@ -68,10 +68,10 @@ const Header = () => {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed top-0 z-[888] w-screen h-[48px] px-4 backdrop-blur-[4px] bg-white dark:bg-bg-dark dark:text-text-dark"
+      className="fixed top-0 z-[888] w-screen h-[48px] px-4 md:px-12 backdrop-blur-[4px] bg-white dark:bg-bg-dark dark:text-text-dark"
     >
       {/* Container */}
-      <div className="w-full max-w-[1536px] flex justify-between items-center h-full mx-auto">
+      <div className="w-full max-w-[1536px] flex justify-between items-center h-full mx-auto ">
 
         {/* Logo Wrapper */}
         <motion.div

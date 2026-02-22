@@ -92,11 +92,11 @@ const Hero = () => {
           <div className="absolute bottom-0 z-50 h-1/2 w-full pointer-events-none bg-gradient-to-t from-primary dark:from-primary-dark to-transparent" />
 
           {/* Image Container */}
-          <div className=" relative container max-h-[500px] rounded-t-2xl mx-auto overflow-hidden shadow-[0_-8px_70px_#579bfe] dark:shadow-[0_-10px_70px_#0143a7]">
+          <div className=" relative mx-6 md:mx-12 max-h-[500px] rounded-t-2xl overflow-hidden shadow-[0_-8px_70px_#579bfe] dark:shadow-[0_-10px_70px_#0143a7]">
             <img
               src={dark ? "/assets/dark.png" : "/assets/light.png"}
               alt=""
-              className="w-full px-4 md:px-0"
+              className="w-full md:px-0"
             />
           </div>
         </div>

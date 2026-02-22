@@ -32,7 +32,7 @@ export default function WatchDemoContent() {
   };
 
   return (
-    <div className="w-full md:min-w-[600px] lg:min-w-[800px] flex flex-col gap-6">
+    <div className="w-full md:min-w-[550px] flex flex-col gap-6 max-h-[85vh] ">
       {/* Header */}
       <div className="text-center">
         {/* Top */}
@@ -52,7 +52,7 @@ export default function WatchDemoContent() {
 
       {/* Video Container */}
       <div className="relative">
-        <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-bg dark:bg-bg-dark border-2 border-bg dark:border-bg-dark">
+        <div className="aspect-video mx-auto rounded-xl overflow-hidden shadow-lg bg-bg dark:bg-bg-dark border-2 border-bg dark:border-bg-dark">
           {/* Loading state */}
           {isVideoLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-bg dark:bg-bg-dark">

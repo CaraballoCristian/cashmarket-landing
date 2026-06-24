@@ -15,7 +15,7 @@ Designed with focus on **storytelling, modern animations, multi-language support
 
 ```bash
 # Clone the repository:
-git clone https://github.com/tuusuario/cashmarket-landing.git
+git clone https://github.com/CaraballoCristian/cashmarket-landing.git
 
 # Install dependencies:
 npm install

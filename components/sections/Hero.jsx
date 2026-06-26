@@ -1,5 +1,6 @@
 // Utils
 import { motion } from "framer-motion";
+import Image from "next/image";
 // Context
 import { useDark } from "@/context/DarkContext";
 import { useModal } from "@/context/ModalContext";
@@ -92,11 +93,13 @@ const Hero = () => {
           <div className="absolute bottom-0 z-50 h-1/2 w-full pointer-events-none bg-gradient-to-t from-primary dark:from-primary-dark to-transparent" />
 
           {/* Image Container */}
-          <div className=" relative mx-6 md:mx-12 max-h-[500px] rounded-t-2xl overflow-hidden shadow-[0_-8px_70px_#579bfe] dark:shadow-[0_-10px_70px_#0143a7]">
-            <img
+          <div className="relative mx-6 md:mx-12 max-h-[500px] rounded-t-2xl overflow-hidden shadow-[0_-8px_70px_#579bfe] dark:shadow-[0_-10px_70px_#0143a7]">
+            <Image
               src={dark ? "/assets/dark.png" : "/assets/light.png"}
-              alt=""
-              className="w-full md:px-0"
+              alt="Cashmarket dashboard preview"
+              width={1200}
+              height={600}
+              className="w-full h-auto md:px-0"
             />
           </div>
         </div>

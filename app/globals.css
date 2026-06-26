@@ -152,6 +152,6 @@ html {
   scroll-behavior: smooth;
 }
 /* Smooth transition to dark mode */
-* {
+html {
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }

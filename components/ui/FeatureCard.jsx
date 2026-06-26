@@ -1,6 +1,6 @@
 // Utils
 import { motion, useScroll, useTransform } from "framer-motion";
-// Hooks
+import Image from "next/image";
 import { useRef } from "react";
 
 const FeatureCard = ({
@@ -16,29 +16,27 @@ const FeatureCard = ({
   const container = useRef(null);
   const Icon = icon;
 
-  /* Works for every card */
-  const { scrollYProgress: scrollImg } = useScroll({
-    target: container,
-    offset: ["start end", "start start"],
-  });
-
   /* Works on the father container */
   const { scrollYProgress: scrollCard } = useScroll({
     target: reference,
     offset: ["start start", "end end"],
   });
 
-  const range = [i * 0.2, 1];
+  const cardRange = [i * 0.2, 1];
+
+  const cardScale = useTransform(scrollCard, cardRange, [1, targetScale]);
+
+  /* Works on the card container */
+  const { scrollYProgress: scrollImg } = useScroll({
+    target: container,
+    offset: ["start end", "start start"],
+  });
 
   const imgScale = useTransform(scrollImg, [0, 1], [2, 1]);
-  const cardScale = useTransform(scrollCard, range, [1, targetScale]);
 
   return (
     /* Container */
-    <div
-      ref={container}
-      className="sticky top-0 h-screen flex items-center justify-center px-4"
-    >
+    <div ref={container} className="sticky top-0 h-screen flex items-center justify-center px-4">
       {/* Card */}
       <motion.article
         /* Stacking */
@@ -47,13 +45,13 @@ const FeatureCard = ({
           ${!isEven && "md:flex-row-reverse"}`}
       >
         {/* Picture */}
-        <div className="relative w-full md:w-1/2 bg-amber-600 h-[280px] md:h-full overflow-hidden aspect-square rounded-xl ">
-          <motion.img
+        <div className="relative w-full md:w-1/2 bg-amber-600 h-[280px] md:h-full overflow-hidden aspect-square rounded-xl">
+          <motion.div
             style={{ scale: imgScale }}
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
-          />
+            className="relative w-full h-full"
+          >
+            <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+          </motion.div>
         </div>
 
         {/* Text */}

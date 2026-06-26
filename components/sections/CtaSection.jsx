@@ -1,5 +1,6 @@
 // Utils
 import { motion } from "framer-motion";
+import Image from "next/image";
 // Context
 import { useModal } from "@/context/ModalContext";
 import { useDark } from "@/context/DarkContext";
@@ -50,10 +51,12 @@ const CtaSection = () => {
           {/* Image mobile */}
           {!isDesktop && (
             <div className="w-full">
-              <img
+              <Image
                 src={dark ? "/assets/dark.png" : "/assets/light.png"}
                 alt="Cashmarket App Preview"
-                className="rounded-xl shadow-lg"
+                width={1200}
+                height={600}
+                className="rounded-xl shadow-lg w-full h-auto"
               />
             </div>
           )}
@@ -68,11 +71,12 @@ const CtaSection = () => {
 
         {/* Imag desktop */}
         {isDesktop && (
-          <div className="lg:h-[280px] w-full lg:w-1/2">
-            <img
+          <div className="relative lg:h-[280px] w-full lg:w-1/2">
+            <Image
               src={dark ? "/assets/dark.png" : "/assets/light.png"}
               alt="Cashmarket App Preview"
-              className="rounded-xl shadow-lg ml-auto lg:h-full"
+              fill
+              className="rounded-xl shadow-lg ml-auto object-contain"
             />
           </div>
         )}

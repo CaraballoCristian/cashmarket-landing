@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 const FeatureCardMobile = ({ icon, title, description, image, isEven, i }) => {
   const Icon = icon;
 
@@ -12,8 +15,16 @@ const FeatureCardMobile = ({ icon, title, description, image, isEven, i }) => {
           ${!isEven && "md:flex-row-reverse"}`}
       >
         {/* Picture */}
-        <div className="relative w-full md:w-1/2 bg-amber-600 h-[280px] md:h-full overflow-hidden aspect-square rounded-xl ">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
+        <div className="relative w-full md:w-1/2 bg-amber-600 h-[280px] md:h-full overflow-hidden aspect-square rounded-xl">
+          <motion.div
+            initial={{ scale: 2 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="relative w-full h-full"
+          >
+            <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+          </motion.div>
         </div>
 
         {/* Text */}

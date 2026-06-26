@@ -1,9 +1,5 @@
 "use client";
-// Hooks
 import { useRef, useEffect } from "react";
-// Utils
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Stars = ({
   sectionRef,
@@ -12,117 +8,144 @@ const Stars = ({
   quantity,
   bgColor = "white",
 }) => {
-  const starsRef = useRef([]);
-  const stars = quantity; /* stars quantity */
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (type === "scroll") {
-      gsap.registerPlugin(ScrollTrigger);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let animationId;
+    let image = null;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    if (content) {
+      image = new Image();
+      image.src = content;
     }
 
-    const staticSectionRef = sectionRef.current;
-    let handleMouseMove = null;
-
-    starsRef.current.forEach((star, i) => {
-      /* Stars Size Limit */
-      const baseSize = 5 + Math.random() * 20; // 5px & 25px
-      const size = Math.random() < 0.1 ? 45 : baseSize; // 10% of the stars are bigger
-
-      gsap.set(star, {
-        width: `${size}px`,
-        height: `${size}px`,
-        backgroundColor: bgColor,
+    const stars = Array.from({ length: quantity }, (_, i) => {
+      const baseSize = 5 + Math.random() * 20;
+      return {
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() < 0.1 ? 45 : baseSize,
         opacity: 0.2 + Math.random() * 0.4,
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-      });
+        direction: i % 2 === 0 ? 1 : -1,
+        intensity: ((i % 5) + 1) * 0.5,
+      };
     });
 
-    // Scroll-based animation
-    if (type === "scroll") {
-      starsRef.current.forEach((star, index) => {
-        const direction = index % 2 === 0 ? 1 : -1;
-        const speed = 0.5 + Math.random() * 0.5;
+    const dpr = window.devicePixelRatio || 1;
 
-        gsap.to(star, {
-          x: `${direction * (100 + index * 20)}`,
-          y: `${direction * (-50 - index * 10)}`,
-          rotation: direction * 360,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: speed,
-          },
-        });
-      });
+    const resize = () => {
+      const parent = canvas.parentElement;
+      const w = parent.offsetWidth;
+      const h = parent.offsetHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
 
-      // Mouse movement animation
-    } else if (type === "mouse") {
-      handleMouseMove = (e) => {
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
+    const animate = () => {
+      const w = canvas.width / dpr;
+      const h = canvas.height / dpr;
 
-        // Normalize mouse position (-1 to 1)
-        const normalizedX = (clientX / innerWidth) * 2 - 1;
-        const normalizedY = (clientY / innerHeight) * 2 - 1;
+      ctx.clearRect(0, 0, w, h);
 
-        starsRef.current.forEach((star, index) => {
-          // Different movement intensity for each star
-          const intensity = ((index % 5) + 1) * 0.5; // 0.5 to 2.5
-          const moveX = normalizedX * intensity * 50; // Max 125px movement
-          const moveY = normalizedY * intensity * 50;
+      let progress = 0;
+      if (type === "scroll" && sectionRef?.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const viewportH = window.innerHeight;
+        progress = Math.max(
+          0,
+          Math.min(1, (viewportH - rect.top) / (viewportH + rect.height))
+        );
+      }
 
-          gsap.to(star, {
-            x: -moveX,
-            y: -moveY,
-            rotation: normalizedX * intensity * 10, // Slight rotation based on mouse X
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        });
-      };
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        const cx = (star.x / 100) * w;
+        const cy = (star.y / 100) * h;
 
-      // Mouse move listener
+        let offsetX = 0;
+        let offsetY = 0;
+        let rotation = 0;
+
+        if (type === "scroll") {
+          const d = star.direction;
+          offsetX = d * (100 + i * 20) * progress;
+          offsetY = d * (-50 - i * 10) * progress;
+          rotation = d * 360 * progress;
+        } else if (type === "mouse") {
+          offsetX = -mouseX * star.intensity * 50;
+          offsetY = -mouseY * star.intensity * 50;
+          rotation = mouseX * star.intensity * 10;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = star.opacity;
+        ctx.translate(cx + offsetX, cy + offsetY);
+        ctx.rotate((rotation * Math.PI) / 180);
+
+        const r = star.size / 2;
+
+        if (image && image.complete && image.naturalWidth > 0) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(0, 0, r, 0, Math.PI * 2);
+          ctx.clip();
+          const imgAspect = image.naturalWidth / image.naturalHeight;
+          if (imgAspect > 1) {
+            const drawW = star.size * imgAspect;
+            ctx.drawImage(image, -drawW / 2, -star.size / 2, drawW, star.size);
+          } else {
+            const drawH = star.size / imgAspect;
+            ctx.drawImage(image, -star.size / 2, -drawH / 2, star.size, drawH);
+          }
+          ctx.restore();
+        } else {
+          ctx.beginPath();
+          ctx.arc(0, 0, r, 0, Math.PI * 2);
+          ctx.fillStyle = bgColor;
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    const handleMouseMove = (e) => {
+      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+    if (type === "mouse") {
       window.addEventListener("mousemove", handleMouseMove);
     }
+    animate();
 
     return () => {
-      if (type === "scroll") {
-        ScrollTrigger.getAll().forEach((trigger) => {
-          if (trigger.vars.trigger === staticSectionRef) {
-            // Clean up the ScrollTrigger instances
-            trigger.kill();
-          }
-        });
-      } else if (type === "mouse" && handleMouseMove) {
-        // Clean up mouse listener
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", resize);
+      if (type === "mouse") {
         window.removeEventListener("mousemove", handleMouseMove);
       }
     };
-  }, [type]);
-
-  /* Check for every star to exist and not to be in starRef already, then it pushes the star to starRef */
-  const addToStars = (el) => {
-    if (el && !starsRef.current.includes(el)) {
-      starsRef.current.push(el);
-    }
-  };
+  }, [type, content, quantity, bgColor, sectionRef]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden Z-[999]">
-      {/* Stars */}
-      {[...Array(stars)].map((_, i) => (
-        <div
-          ref={addToStars}
-          key={`star-${i}`}
-          className="absolute flex items-center justify-center rounded-full"
-        >
-          {content && <img src={content} className="size-full object-cover" />}
-        </div>
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none z-[999]"
+    />
   );
 };
 
